@@ -11,6 +11,12 @@ class UsersTest extends TestCase
      *
      * @return void
      */
+
+
+
+
+
+
     public function testRegisterUsers()
     {
         /*
@@ -25,6 +31,7 @@ class UsersTest extends TestCase
             ->type('asdfg','password')
             //->type('asdfgh','password-confirm')
             ->press('Registrarse');
+            //->seePageIs('/home');
 
     }
 
@@ -33,8 +40,8 @@ class UsersTest extends TestCase
         $this->visit('/login')
             ->type('ja@ho.com','email')
             ->type('123456','password')
-            ->press('Login')
-            ->see('Laravel');
+            ->press('Login');
+            //->seeText('You are logged in!');
 
     }
 }
