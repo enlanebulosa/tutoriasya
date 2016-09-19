@@ -24,24 +24,25 @@ class UsersTest extends TestCase
         */
         $this->visit('/register')
             ->type('Javier','nombre')
-            ->type('Cicchino','apellido')
-            ->type('28869140','dni')
+            ->type('Cicchineo','apellido')
+            ->type('28869130','dni')
             ->select('administrador','tipo')
-            ->type('javiercicchino@gmail.com','email')
-            ->type('asdfg','password')
-            //->type('asdfgh','password-confirm')
-            ->press('Registrarse');
-            //->seePageIs('/home');
+            ->type('javiercicchino1@gmail.com','email')
+            ->type('asdfgh','password')
+            ->type('asdfgh','password_confirmation')
+            ->press('Registrarse')
+            ->seePageIs('/home');
+            //->;
 
     }
 
     public function testLoginUser() {
 
         $this->visit('/login')
-            ->type('ja@ho.com','email')
-            ->type('123456','password')
-            ->press('Login');
-            //->seeText('You are logged in!');
+            ->type('javiercicchino1@gmail.com','email')
+            ->type('asdfgh','password')
+            ->press('Login')
+            ->see('You are logged in!');
 
     }
 }
