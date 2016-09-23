@@ -1,5 +1,6 @@
 <?php
 
+use App\User;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,15 +12,32 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+//Route::get('/', function () {
+//    return view('welcome');
+//});
+//Route::get('/login', function () {
+//    return view('login');
+//});
+//Route::get('/prueba/{id}', [
+//    'uses' => 'TestController@view',
+//    'as' => 'domicilio'
+//]);
+
+Route::get('/admin', function () {
+    return view('admin');
 });
 
-Route::get('/prueba/{id}', [
-    'uses' => 'TestController@view',
-    'as' => 'domicilio'
-]);
+Route::get('/paginacion', function () {
+    return view('paginacion');
+});
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+Route::get('/', 'RoutesController@checkAuth');
+Route::get('/paginacion', 'PaginacionController@checkAuth');
+
+Route::get('/paginacion2', function(){   
+    $users=User::orderBy('id', 'ASC')->paginate(5);
+    return view('users')->with('users',$users);
+});
