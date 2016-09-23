@@ -1,17 +1,6 @@
 <!DOCTYPE html>
 @extends("layouts.app")
-@section("title", "Lista de usuario")
-<!--<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="_token" content="{!! csrf_token() !!}" />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.css') }}"">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script src="{{ asset('bootstrap/js/bootstrap.js') }}"></script>
-</head>
-<body>-->
-
+@section("title", "Lista de usuarios")
 @section("content")
 <div class="container">
 <div class="panel panel-default">
@@ -51,7 +40,8 @@
 </div>
 </div>
 @endsection  
- 
+
+@section('scripts')
 <script type="text/javascript">
 	$.ajaxSetup({
 			headers: {
@@ -157,6 +147,4 @@
 
 
 </script>  
-</div>
-</body>
-</html>
+@endsection
