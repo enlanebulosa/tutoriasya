@@ -13,7 +13,6 @@
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.css') }}"">
-    <script src="{{ asset('jquery/js/jquery-3.1.1.js') }}"></script>
     <script src="{{ asset('bootstrap/js/bootstrap.js') }}"></script>
     
 

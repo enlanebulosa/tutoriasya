@@ -15,7 +15,7 @@
 	 		<th>ID</th>
 	 		<th>Nombre</th>
 	 		<th>Apellido</th>
-	 		<th>DNI</th>
+	 		<th>dni</th>
 	 		<th>Email</th>
 	 		<th>Tipo</th>
 	 	</thead>
@@ -42,6 +42,7 @@
 @endsection  
 
 @section('scripts')
+<script src="{{ asset('jquery/js/jquery-3.1.1.js') }}"></script>
 <script type="text/javascript">
 	$.ajaxSetup({
 			headers: {
@@ -66,7 +67,7 @@
 		var formData=form.serialize();
 		var url =form.attr('action');
 		var state=$('#save').val();
-		var vtype = 'post';
+		var type = 'post';
 		if(state=='update'){
 			type='put';
 			}
@@ -77,11 +78,11 @@
 				success:function(data){
 					var row='<tr id="users'+ data.id +'">'+
 				'<td>'+ data.id +'</td>'+
-				'<td>'+ data.NOMBRE +'</td>'+
-				'<td>'+ data.APELLIDO +'</td>'+
-				'<td>'+ data.DNI +'</td>'+
-				'<td>'+ data.EMAIL +'</td>'+
-				'<td>'+ data.TIPO +'</td>'+
+				'<td>'+ data.nombre +'</td>'+
+				'<td>'+ data.apellido +'</td>'+
+				'<td>'+ data.dni+'</td>'+
+				'<td>'+ data.email +'</td>'+
+				'<td>'+ data.tipo +'</td>'+
 				'<td><button class="btn btn-success btn-edit data-id"'+ data.id +'">Editar</button>'+
 	 			'<button class="btn btn-danger btn-delete" data-id"'+ data.id +'">Borrar</button></td>'+
 				'</tr>';
@@ -99,11 +100,11 @@
 	function addRow(data){
 		var row='<tr id="users'+ data.id +'">'+
 				'<td>'+ data.id +'</td>'+
-				'<td>'+ data.NOMBRE +'</td>'+
-				'<td>'+ data.APELLIDO +'</td>'+
-				'<td>'+ data.DNI +'</td>'+
-				'<td>'+ data.EMAIL +'</td>'+
-				'<td>'+ data.TIPO +'</td>'+
+				'<td>'+ data.nombre +'</td>'+
+				'<td>'+ data.apellido+'</td>'+
+				'<td>'+ data.dni +'</td>'+
+				'<td>'+ data.email +'</td>'+
+				'<td>'+ data.tipo +'</td>'+
 				'<td><button class="btn btn-success btn-edit">Editar</button>'+
 	 			'<button class="btn btn-danger btn-delete">Borrar</button></td>'+
 				'</tr>';
@@ -119,11 +120,11 @@
 				data : {'id':value},
 				success:function(data){
 					$('#id').val(data.id);
-					$('#NOMBRE').val(data.NOMBRE);
-					$('#APELLIDO').val(data.APELLIDO);
-					$('#DNI').val(data.DNI);
-					$('#EMAIL').val(data.EMAIL);
-					$('#TIPO').val(data.TIPO);
+					$('#nombre').val(data.NOMBRE);
+					$('#apellido').val(data.apellido);
+					$('#dni').val(data.dni);
+					$('#email').val(data.email);
+					$('#tipo').val(data.tipo);
 					$('#save').val('update');
 					$('#users').modal('show');
 				}
