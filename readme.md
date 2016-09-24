@@ -6,6 +6,10 @@
 % git clone https://github.com/enlanebulosa/tutoriasya.git
 % cd tutoriasya
 % composer install
+%
+# Se debe generar un .env nuevo o haber copiado este desde los proyectos anteriores.
+% php artisan migrate
+% php artisan db:seed
 ```
 
 ## Iniciar Server
