@@ -1,4 +1,4 @@
-## TutoriasYa
+# TutoriasYa
 
 ## Instalar
 
@@ -6,8 +6,13 @@
 % git clone https://github.com/enlanebulosa/tutoriasya.git
 % cd tutoriasya
 % composer install
-%
-# Se debe generar un .env nuevo o haber copiado este desde los proyectos anteriores.
+```
+
+Crear un .env nuevo o copiar alguno desde los proyectos anteriores.
+
+Generar la base de datos
+
+```
 % php artisan migrate
 % php artisan db:seed
 ```
@@ -25,36 +30,37 @@ Ver el estado de la rama de trabajo
 % git status
 ```
 Realizar un commit
- 1- agregar el cambio
-```
 
- 2- realizar el commit
+```
 % git commit -a -m 'Un mensaje de commit'
 ```
- 3- en el caso de que quieran ir a una commit particular 
 
-'''
- % git log    (APARECEN TODOS LOS COMMIT CON UN CODIGO) LUEGO VEN EL CODIGO DEL COMMIT AL CUAL QUIUEREN IR Y PONEN
-'''
+Para el caso de que quieran ir a un commit en particular 
 
+```
+ % git checkout <numeroDelCommit>
+```
 
-'''
- % git checkout numemeroDelCommit  
-'''
+Mostrar los commits recientes, comenzando por los últimos
 
-eliminar una modificacion de algo que no quieren modificar
+```
+ % git log
+```
 
-'''
-% git checkout nombreDelArchivoQModificaron     (esto es la con consola github) 
-'''
+Eliminar una modificacion
 
+```
+% git checkout <nombreDelArchivoQModificaron>
+```
 
 Subir commit al repositorio
 
 ```
 % git push
 ```
+
 Incorporar cambios desde el repositorio remoto
+
 ```
 % git pull
 ```
