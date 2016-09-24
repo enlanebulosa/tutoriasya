@@ -25,10 +25,29 @@ Ver el estado de la rama de trabajo
 % git status
 ```
 Realizar un commit
-
+ 1- agregar el cambio
 ```
+
+ 2- realizar el commit
 % git commit -a -m 'Un mensaje de commit'
 ```
+ 3- en el caso de que quieran ir a una commit particular 
+
+'''
+ % git log    (APARECEN TODOS LOS COMMIT CON UN CODIGO) LUEGO VEN EL CODIGO DEL COMMIT AL CUAL QUIUEREN IR Y PONEN
+'''
+
+
+'''
+ % git checkout numemeroDelCommit  
+'''
+
+eliminar una modificacion de algo que no quieren modificar
+
+'''
+% git checkout nombreDelArchivoQModificaron     (esto es la con consola github) 
+'''
+
 
 Subir commit al repositorio
 
