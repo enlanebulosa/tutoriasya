@@ -39,4 +39,8 @@ class User extends Model implements AuthenticatableContract
     {
         return $this->hasMany('App\Reputacion', 'id_calificador');
     }
+    
+    public function materias(){
+        return $this->belongsToMany('App\Materia', 'user_materia', 'id_usuario')->withTimestamps();
+    }
 }
