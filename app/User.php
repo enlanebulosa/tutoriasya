@@ -43,4 +43,8 @@ class User extends Model implements AuthenticatableContract
     public function materias(){
         return $this->belongsToMany('App\Materia', 'user_materia', 'id_usuario')->withTimestamps();
     }
+    
+    public function zonas(){
+        return $this->belongsToMany('App\Zona', 'user_zona', 'id_usuario')->withTimestamps();
+    }
 }
