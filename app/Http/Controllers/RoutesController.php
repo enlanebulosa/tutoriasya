@@ -19,7 +19,7 @@ class RoutesController extends Controller
             }
         }
         else{
-            return view('welcome');
+            return view('auth.login');
         }
     }
 }
