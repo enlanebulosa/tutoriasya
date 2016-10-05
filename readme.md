@@ -70,3 +70,14 @@ Incorporar cambios desde el repositorio remoto
 ```
 % vendor/phpunit/phpunit/phpunit --debug
 ```
+
+
+## Problemas con los seeds
+
+Se deben volver a generar mediante con la herramienta artisan.
+```
+% php artisan make:seeder UserSeeder
+% php artisan make:seeder ZonasSeeder
+% php artisan make:seeder MateriasSeeder
+% php artisan make:seeder UserMateriaSeeder
+```
