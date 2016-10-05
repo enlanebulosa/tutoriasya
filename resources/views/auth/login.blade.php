@@ -54,7 +54,6 @@
                                     <button type="submit" class="btn btn-primary">
                                         Login
                                     </button>
-
                                     <a class="btn btn-link" href="{{ url('/password/reset') }}">
                                         Forgot Your Password?
                                     </a>
@@ -92,19 +91,19 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
       <div class="item active">
-        <img src="Ainid.bmp" alt="Chania" width="1000" height="500">
+        <img src="estudiantes.jpg" alt="Chania" width="1000" height="500">
       </div>
 
       <div class="item">
-        <img src="GPS.jpg" alt="Chania" width="460" height="500">
+        <img src="graduados.jpg" alt="Chania" width="460" height="500">
       </div>
     
       <div class="item">
-        <img src="alumno.jpg" alt="Flower" width="460" height="500">
+        <img src="trabajadores.jpg" alt="Flower" width="460" height="500">
       </div>
 
       <div class="item">
-        <img src="puntuacion.jpg" alt="Flower" width="460" height="500">
+        <img src="medicos.jpg" alt="Flower" width="460" height="500">
       </div>
     </div>
 
