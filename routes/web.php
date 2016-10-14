@@ -41,3 +41,8 @@ Route::get('/paginacion2', function(){
     $users=User::orderBy('id', 'ASC')->paginate(5);
     return view('users')->with('users',$users);
 });
+
+Route::group(['prefix' => 'admin'], function(){
+    Route::get('crearusuario', 'AdminController@registeruser');
+    Route::get('listarusuarios', 'AdminController@listusers');
+});
