@@ -20,29 +20,29 @@
 	 		<th>Tipo</th>
 	 	</thead>
 	 	<tbody>
-	 		@foreach($users as $key => $users)
-	 		<tr id="users{{$users ->id}}">
-	 			<td>{{$users ->id}}</td>
-	 			<td>{{$users ->nombre}}</td>
-	 			<td>{{$users ->apellido}}</td>
-	 			<td>{{$users ->dni}}</td>
-	 			<td>{{$users ->email}}</td>
-	 			<td>{{$users ->tipo}}</td>
+	 		@foreach($users as $user)
+	 		<tr id="users{{$user ->id}}">
+	 			<td>{{$user ->id}}</td>
+	 			<td>{{$user ->nombre}}</td>
+	 			<td>{{$user ->apellido}}</td>
+	 			<td>{{$user ->dni}}</td>
+	 			<td>{{$user ->email}}</td>
+	 			<td>{{$user ->tipo}}</td>
 	 			<td>
-	 				<button class="btn btn-success btn-edit" data-id="{{$users->id}}"><i class="glyphicon glyphicon-saved"></i  >Editar</button>
-	 				<button class="btn btn-danger btn-delete" data-id="{{$users->id}}"><i class="glyphicon glyphicon-remove"></i>Borrar</button>
+	 				<button class="btn btn-success btn-edit" data-id="{{$user->id}}"><i class="glyphicon glyphicon-saved"></i  >Editar</button>
+	 				<button class="btn btn-danger btn-delete" data-id="{{$user->id}}"><i class="glyphicon glyphicon-remove"></i>Borrar</button>
 
 	 			</td>
 	 		</tr>
 	 		@endforeach
 	 	</tbody>
 	 </table>
+    {!! $users->render() !!}
 </div>
 </div>
 @endsection  
 
 @section('scripts')
-<script src="{{ asset('jquery/js/jquery-3.1.1.js') }}"></script>
 <script type="text/javascript">
 	$.ajaxSetup({
 			headers: {
@@ -145,7 +145,5 @@
 			});
 		}	
 	});
-
-
-</script>  
+</script>
 @endsection

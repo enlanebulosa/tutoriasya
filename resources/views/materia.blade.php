@@ -8,29 +8,30 @@
 	 <button type="button" class="btn btn-info" id="add" value="add">Nueva Materia</button>
 </div>
 <div class="panel-body">
-	@include('newMateria')
-	 <table class="table table-over">
-	 	<caption>Materias</caption>
-	 	<thead>
-	 		<th>ID</th>
-	 		<th>Nombre</th>
-	 		<th>Nivel</th>
-	 	</thead>
-	 	<tbody>
-	 		@foreach($materia as $key => $materia)
-	 		<tr id="materia{{$materia ->id}}">
-	 			<td>{{$materia ->id}}</td>
-	 			<td>{{$materia ->nombre}}</td>
-	 			<td>{{$materia ->nivel}}</td>
-	 			<td>
-	 				<button class="btn btn-success btn-edit" data-id="{{$materia->id}}"><i class="glyphicon glyphicon-saved"></i  >Editar</button>
-	 				<button class="btn btn-danger btn-delete" data-id="{{$materia->id}}"><i class="glyphicon glyphicon-remove"></i>Borrar</button>
+    @include('newMateria')
+     <table class="table table-over">
+            <caption>Materias</caption>
+            <thead>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Nivel</th>
+            </thead>
+            <tbody>
+                    @foreach($materias as $materia)
+                    <tr id="materia{{$materia ->id}}">
+                            <td>{{$materia ->id}}</td>
+                            <td>{{$materia ->nombre}}</td>
+                            <td>{{$materia ->nivel}}</td>
+                            <td>
+                                    <button class="btn btn-success btn-edit" data-id="{{$materia->id}}"><i class="glyphicon glyphicon-saved"></i  >Editar</button>
+                                    <button class="btn btn-danger btn-delete" data-id="{{$materia->id}}"><i class="glyphicon glyphicon-remove"></i>Borrar</button>
 
-	 			</td>
-	 		</tr>
-	 		@endforeach
-	 	</tbody>
-	 </table>
+                            </td>
+                    </tr>
+                    @endforeach
+            </tbody>
+     </table>  
+    {!! $materias->render() !!}
 </div>
 </div>
 @endsection  

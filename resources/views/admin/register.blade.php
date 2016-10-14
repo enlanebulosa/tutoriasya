@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section("title", "Registrar usuario")
 @section('content')
 <div class="container">
     <div class="row">
@@ -58,8 +58,9 @@
                             <label for="tipo" class="col-md-4 control-label">Tipo de usuario</label>
 
                             <div class="col-md-6">
-                                <select name="tipo" class="form-control" value="{{ old('tipo') }}" autofocus>
-                                <option value="alumno" selected="selected">Alumno</option>
+                                <select name="tipo" class="form-control" value="{{ old('tipo') }}" autofocus>    
+                                <option value="administrador" selected="selected">Administrador</option>
+                                <option value="alumno">Alumno</option>
                                 <option value="profesor">Profesor</option>
                                 </select>
 
