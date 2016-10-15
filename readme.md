@@ -8,7 +8,11 @@
 % composer install
 ```
 
-Crear un .env nuevo o copiar alguno desde los proyectos anteriores.
+Crear un .env nuevo o copiar alguno desde los proyectos anteriores. Y luego ejecutar:
+
+```
+% php artisan key:generate
+```
 
 Generar la base de datos
 
