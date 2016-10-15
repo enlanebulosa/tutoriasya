@@ -17,6 +17,7 @@ class PortalInicioTest extends TestCase
         $this->assertTrue(true);
     }
     */
+    /*
     public function testPressButtonLogin() {
 
         $this->visit('/')
@@ -24,11 +25,20 @@ class PortalInicioTest extends TestCase
             ->seePageIs('/login');
 
     }
+    */
+
+    public function testInicio() {
+
+        $response = $this->call('GET','/');
+        $this->assertEquals(200,$response->status());
+        $this->visit('/')
+            ->see('TutoriasYa!');
+    }
 
     public function testPressButtonRegister() {
 
         $this->visit('/')
-            ->click('Register')
+            ->click('Registrate ahora')
             ->seePageIs('register');
     }
 }
