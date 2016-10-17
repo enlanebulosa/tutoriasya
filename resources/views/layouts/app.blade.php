@@ -8,11 +8,11 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>@yield('title', 'Titulo por defecto') | Tutorias Ya!</title>
+    <title>@yield('title', 'Tu Tutor') | Tutorias Ya!</title>
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.css') }}"">
     <script src="{{ asset('bootstrap/js/bootstrap.js') }}"></script>
     
 
@@ -50,22 +50,45 @@
 
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
+
                     <!-- Authentication Links -->
                     @if (Auth::guest())
-                        <!--        <li><a href="{{ url('/login') }}">Login</a></li>   ESTA LINEA SE COMENTO PARA BORRAR EL BOTON LOGIN-->
-                        <li><a href="{{ url('/register') }}">Registrate ahora</a></li>
+                        <li><a href="{{ url('/register') }}">Registrarse</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Iniciar sesión <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                <li><a href="{{ url('/login') }}">Login</a></li>
+                                <li><a href="#">Facebook</a></li>
+                                <li><a href="#">Twitter</a></li>
+                                <li><a href="#">Google+</a></li>
+            
+            
+          </ul>
                     @else
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                        <li><a href="#">Buscar</a></li>
+                        <li><a href="#">Mis Tutores<span class="sr-only">(current)</span></a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                {{ Auth::user()->name }} <span class="caret"></span>
+                                {{ Auth::user()->session }} <span class="caret"></span>
+                            
+                    
                             </a>
-
+                             
                             <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">Perfil</a></li>
+                            <li><a href="#">Mis Tutorias</a></li>
+                            <li><a href="#">Mensajes Privados</a></li>
+                            <li><a href="#">Configuración</a></li>
+
+
+
                                 <li>
                                     <a href="{{ url('/logout') }}"
                                         onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">
-                                        Cerrar Sesion
+                                        Salir
                                     </a>
 
                                     <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
