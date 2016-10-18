@@ -6,22 +6,28 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests;
 use App\User;
-
+use App\Materia;
 class AdminController extends Controller
 {
     //
-    public function registerusers() {
-        return AdminController::checkAuth('admin.register');
+    public function home(){
+        return AdminController::checkAuth('admin.home');
     }
     
-    public function login(){
-        echo Auth::user()->nombre;
+    public function registerUser() {
+        return AdminController::checkAuth('admin.usuarios.register');
     }
     
-    public function listusers(){
+    public function listUsers(){
         $users=User::orderBy('id', 'ASC')->paginate(10);
-        return AdminController::checkAuth('users')->with('users',$users);
+        return AdminController::checkAuth('admin.usuarios.users')->with('users',$users);
     }
+    
+    public function listMaterias() {
+        $materias=Materia::orderBy('id', 'ASC')->paginate(10);
+        return AdminController::checkAuth('admin.materias.materia')->with('materias', $materias);
+    }
+    
     
     public function checkAuth($vista){
         if(Auth::check()){

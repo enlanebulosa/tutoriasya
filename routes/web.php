@@ -1,6 +1,5 @@
 <?php
 
-use App\User;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,6 +23,8 @@ Route::get('/home', 'HomeController@index');
 Route::get('/', 'RoutesController@checkAuth');
 
 Route::group(['prefix' => 'admin'], function(){
-    Route::get('crearusuario', 'AdminController@registeruser');
-    Route::get('listarusuarios', 'AdminController@listusers');
+    Route::get('/', 'AdminController@home');
+    Route::get('crearusuario', 'AdminController@registerUser');
+    Route::get('usuarios', 'AdminController@listUsers');
+    Route::get('materias', 'AdminController@listMaterias');
 });

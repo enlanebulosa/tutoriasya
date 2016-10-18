@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('admin.navbar')
 @section("title", "Registrar usuario")
 @section('content')
 <div class="container">
