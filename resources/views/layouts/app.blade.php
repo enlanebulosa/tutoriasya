@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,7 +15,9 @@
     <link href="/css/app.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.css') }}"">
     <script src="{{ asset('bootstrap/js/bootstrap.js') }}"></script>
-    
+
+
+
 
     <!-- Scripts -->
     <script>
@@ -23,7 +26,9 @@
         ]); ?>
     </script>
 </head>
-<body>
+<style type="text/css">
+body{background-color:orange}
+</style>
     <nav class="navbar navbar-default navbar-static-top">
         <div class="container">
             <div class="navbar-header">
@@ -37,9 +42,7 @@
                 </button>
 
                 <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    TutoriasYa!
-                </a>
+                <a class="navbar-brand" href="{{ url('/') }}"><button class ="btn btn-danger">TutoriasYA!</button> </a>
             </div>
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
@@ -53,16 +56,13 @@
 
                     <!-- Authentication Links -->
                     @if (Auth::guest())
-                        <li><a href="{{ url('/register') }}">Registrarse</a></li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Iniciar sesión <span class="caret"></span></a>
+                        <li><a href="{{ url('/register') }}"><button class ="btn btn-danger" >Registrarse</button></li> <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <button class ="btn btn-danger">Iniciar sesión </button> <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                 <li><a href="{{ url('/login') }}">Login</a></li>
                                 <li><a href="#">Facebook</a></li>
                                 <li><a href="#">Twitter</a></li>
-                                <li><a href="#">Google+</a></li>
-            
-            
+                                <li><a href="#">Google+</a></li>            
           </ul>
                     @else
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
