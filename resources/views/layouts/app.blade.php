@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,9 +14,7 @@
     <link href="/css/app.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.css') }}"">
     <script src="{{ asset('bootstrap/js/bootstrap.js') }}"></script>
-
-
-
+    
 
     <!-- Scripts -->
     <script>
@@ -26,9 +23,7 @@
         ]); ?>
     </script>
 </head>
-<style type="text/css">
-body{background-color:orange}
-</style>
+<body>
     <nav class="navbar navbar-default navbar-static-top">
         <div class="container">
             <div class="navbar-header">
@@ -42,7 +37,9 @@ body{background-color:orange}
                 </button>
 
                 <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/') }}"><button class ="btn btn-danger">TutoriasYA!</button> </a>
+                <a class="navbar-brand" href="{{ url('/') }}">
+                    TutoriasYa!
+                </a>
             </div>
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
@@ -56,28 +53,33 @@ body{background-color:orange}
 
                     <!-- Authentication Links -->
                     @if (Auth::guest())
-                        <li><a href="{{ url('/register') }}"><button class ="btn btn-danger" >Registrarse</button></li> <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <button class ="btn btn-danger">Iniciar sesión </button> <span class="caret"></span></a>
+                        <li><a href="{{ url('/register') }}">Registrarse</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Iniciar sesión <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                 <li><a href="{{ url('/login') }}">Login</a></li>
                                 <li><a href="#">Facebook</a></li>
                                 <li><a href="#">Twitter</a></li>
-                                <li><a href="#">Google+</a></li>            
+                                <li><a href="#">Google+</a></li>
+            
+            
           </ul>
+
                     @else
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
-                        <li><a href="#">Buscar</a></li>
+                        <li><a href="{{ url('/buscar') }}"><span class="glyphicon glyphicon-search"></span></a>
+                        </li>
                         <li><a href="#">Mis Tutores<span class="sr-only">(current)</span></a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                {{ Auth::user()->session }} <span class="caret"></span>
+                                {{ Auth::user()->nombre }} <span class="caret"></span>
                             
                     
                             </a>
                              
                             <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">Perfil</a></li>
+                            <li><a href="{{ url('/perfil') }}">Perfil</a></li>
                             <li><a href="#">Mis Tutorias</a></li>
                             <li><a href="#">Mensajes Privados</a></li>
                             <li><a href="#">Configuración</a></li>

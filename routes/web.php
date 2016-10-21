@@ -10,7 +10,12 @@
 | to using a Closure or controller method. Build something great!
 |
 */
-
+Route::get("/perfil",function(){
+	return view("perfil");
+});
+Route::get("/buscar",function(){
+	return view("buscar");
+});
 //Route::get('/prueba/{id}', [
 //    'uses' => 'TestController@view',
 //    'as' => 'domicilio'
