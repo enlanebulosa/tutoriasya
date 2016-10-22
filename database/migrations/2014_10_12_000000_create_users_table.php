@@ -16,10 +16,11 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->string('nombre', 45);
             $table->string('apellido', 45);
-            $table->integer('dni');
+            $table->integer('dni')->unique();
             $table->string('email', 45)->unique();
             $table->string('password', 120);
             $table->enum('tipo',['profesor','administrador','alumno'])->default('alumno');
+            $table->string('avatar', 45)->default('default.jpg');
             $table->rememberToken();
             $table->timestamps();
         });
