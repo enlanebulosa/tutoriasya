@@ -33,3 +33,8 @@ Route::group(['prefix' => 'admin'], function(){
     Route::get('usuarios', 'AdminController@listUsers');
     Route::get('materias', 'AdminController@listMaterias');
 });
+
+// Ruta provisoria para agregar usuarios administradores.
+Route::get('agregaradmin', function(){
+   return view('admin.usuarios.register');
+});

@@ -55,34 +55,40 @@
                 <ul class="nav navbar-nav navbar-right">
 
                     <!-- Authentication Links -->
-                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                    <li class="dropdown"> 
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            {{ Auth::user()->session }}{{ Auth::user()->nombre }} <span class="caret"></span>
+                    @if (!Auth::guest())
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                        <li class="dropdown"> 
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                {{ Auth::user()->session }}{{ Auth::user()->nombre }} <span class="caret"></span>
 
 
-                        </a>
-
-                        <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Perfil</a></li>
-                        <li><a href="#">Mis Tutorias</a></li>
-                        <li><a href="#">Mensajes Privados</a></li>
-                        <li><a href="#">Configuración</a></li>
-                        <li>
-                            <a href="{{ url('/logout') }}"
-                                onclick="event.preventDefault();
-                                         document.getElementById('logout-form').submit();">
-                                Salir
                             </a>
 
-                            <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-                                {{ csrf_field() }}
-                            </form>
-                        </li>
-                        </ul>
-                        </li>
+                            <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">Perfil</a></li>
+                            <li><a href="#">Mis Tutorias</a></li>
+                            <li><a href="#">Mensajes Privados</a></li>
+                            <li><a href="#">Configuración</a></li>
+                            <li>
+                                <a href="{{ url('/logout') }}"
+                                    onclick="event.preventDefault();
+                                             document.getElementById('logout-form').submit();">
+                                    Salir
+                                </a>
+
+                                <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                </form>
+                            </li>
+                            </ul>
+                            </li>
+                            </ul>
                 </ul>
+                        @else
+                            <li><a href="{{ url('/register') }}">Registrarse</a></li>
+                </ul>
+                        @endif
             </div>
         </div>
     </nav>
