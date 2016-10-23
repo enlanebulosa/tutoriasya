@@ -38,7 +38,7 @@ class PortalInicioTest extends TestCase
     public function testPressButtonRegister() {
 
         $this->visit('/')
-            ->click('Registrate ahora')
+            ->click('Registrarse')
             ->seePageIs('register');
     }
 }
