@@ -9,8 +9,8 @@
 </div>
 <div class="panel-body">
 	@include('admin.usuarios.newUsers')
+        <h1>Informacion de los Usuarios</h1>
 	 <table class="table table-over">
-	 	<caption>Informacion de usuario</caption>
 	 	<thead>
 	 		<th>ID</th>
 	 		<th>Nombre</th>

@@ -37,7 +37,8 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        //Hay que configurar el middleware para que permita construir usuarios a los admin.
+        //$this->middleware('guest');
     }
     
     /**

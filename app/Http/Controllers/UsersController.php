@@ -3,24 +3,24 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-use App\Http\Requests;
 use App\User;
 use DB;
 
-class UserController extends Controller
+class UsersController extends Controller
 {
     public function index(){
     		$user=User::all();
     		return view('paginacion',['user'=>$user]);
     	}
-    public function newUser(Requests $request){
-    	if ($request->ajax()) {
-    		$user=User::create($request->all());
-    		return Response($user);
-    		}
-    	} 
-    public function getUpdate(Requests $request){
+        
+    public function newUser(Request $request){
+        $user=User::create($request->all());
+        $user->password = bcrypt($request->password);
+        $user->save();
+        return redirect('/admin/usuarios');
+    }
+
+    public function getUpdate(Request $request){
     	if ($request->ajax()) 
     	{
     		$user=User::find($request->id);
@@ -28,7 +28,7 @@ class UserController extends Controller
     		}
     	} 
 
-    public function newUpdate(Requests $request){
+    public function newUpdate(Request $request){
     	if ($request->ajax()) {
     		$user=User::find($request->id);
     		$user->nombre=$request->nombre;
@@ -41,7 +41,7 @@ class UserController extends Controller
     		return Response($user);	
     		}
     	} 
-    public function deleteUser(Requests $request){
+    public function deleteUser(Request $request){
     	if ($request->ajax()) 
     	{
     		User::destroy($request->id);
