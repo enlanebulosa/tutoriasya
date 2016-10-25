@@ -11,7 +11,7 @@ class User extends Model implements AuthenticatableContract
     use Authenticatable;
     //protected $table = "nombretabla";
     
-    protected $fillable = array('nombre','apellido','email', 'dni', 'tipo', 'password');
+    protected $fillable = array('nombre','apellido','email', 'dni', 'tipo', 'password','avatar');
     
     
     public function reserva()
