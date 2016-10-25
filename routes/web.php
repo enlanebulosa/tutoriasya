@@ -20,7 +20,8 @@ Route::get("/buscar",function(){
 //    'uses' => 'TestController@view',
 //    'as' => 'domicilio'
 //]);
-
+Route::get('/profile', 'UsersController@profile');
+Route::post('profile','UsersController@update_avatar');
 
 Auth::routes();
 
