@@ -34,3 +34,13 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 
     ];
 });
+
+$factory->define(App\Zona::class, function (Faker\Generator $faker) {
+
+    return [
+        'descripcion' => $faker->city,
+        'partido' => $faker->country,
+        'localidad' => $faker->city,
+
+    ];
+});
