@@ -49,4 +49,12 @@ class User extends Model implements AuthenticatableContract
         return $this->belongsToMany('App\Zona', 'user_zona', 'id_usuario')
                 ->withTimestamps();
     }
+	public function mensaje()
+    {
+        return $this->hasMany('App\Mensaje', 'id_emisor');
+    }
+    	public function mensajedada()
+    {
+        return $this->hasMany('App\Mensaje', 'id_receptor');
+    }
 }
