@@ -30,10 +30,20 @@ Route::get('/', 'RoutesController@checkAuth');
 
 Route::group(['prefix' => 'admin'], function(){
     Route::get('/', 'AdminController@home');
-    Route::get('crearusuario', 'AdminController@registerUser');
-    Route::get('usuarios', 'AdminController@listUsers');
-    Route::get('materias', 'AdminController@listMaterias');
-    Route::post('newuser', 'UsersController@newUser');
+    
+    Route::group(['prefix' => 'usuarios'], function(){
+        Route::get('/', 'AdminController@listUsers');
+        Route::get('crearusuario', 'AdminController@registerUser');
+        Route::post('crearusuario', 'UsersController@newUser');
+    });
+    
+    #Habria que hacer un middleware para evitar que un guest pueda crear materias.
+    Route::group(['prefix' => 'materias'], function(){
+        Route::get('/', 'AdminController@listMaterias');
+        Route::post('crearmateria', 'MateriasController@newMateria');
+    });
+    
+    
 });
 
 // Ruta provisoria para agregar usuarios administradores.

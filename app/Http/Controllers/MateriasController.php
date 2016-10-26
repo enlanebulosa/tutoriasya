@@ -3,24 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-use App\Http\Requests;
 use App\Materia;
-use DB;
 
-class MateriaController extends Controller
+class MateriasController extends Controller
 {
     public function index(){
-            $materia=Materias::all();
-            return view('paginacion',['materia'=>$materia]);
-        }
-    public function newMateria(Requests $request){
-        if ($request->ajax()) {
-            $materia=Materia::create($request->all());
-            return Response($materia);
-            }
-        } 
-    public function getUpdate(Requests $request){
+        $materia=Materias::all();
+        return view('paginacion',['materia'=>$materia]);
+    }
+    
+    public function newMateria(Request $request){
+        $materia=Materia::create($request->all());
+        return redirect('admin/materias');
+    } 
+    
+    public function getUpdate(Request $request){
         if ($request->ajax()) 
         {
             $materia=Materia::find($request->id);
@@ -28,7 +25,7 @@ class MateriaController extends Controller
             }
         } 
 
-    public function newMateriaUpdate(Requests $request){
+    public function newMateriaUpdate(Request $request){
         if ($request->ajax()) {
             $materia=Materia::find($request->id);
             $materia->nombre=$request->nombre;
@@ -38,7 +35,7 @@ class MateriaController extends Controller
             return Response($materia);  
             }
         } 
-    public function deleteMateria(Requests $request){
+    public function deleteMateria(Request $request){
         if ($request->ajax()) 
         {
             Materia::destroy($request->id);

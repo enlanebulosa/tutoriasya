@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
-use DB;
 use Auth;
 use Image;
 
@@ -49,10 +48,13 @@ class UsersController extends Controller
     		User::destroy($request->id);
     		return Response()->json(['sms'=>'Eliminado correctamente']);	
     		}
-    	} 
-   public function profile(){
-        return view('profile',array('user'=>Auth::user()));
-}
+    } 
+        
+    public function profile(){
+        
+        return view('perfil',array('user'=>Auth::user()));
+    }
+    
     public function update_avatar(Request $request){
         if($request->hasFile('avatar')){
             $avatar=$request->file('avatar');
@@ -63,6 +65,7 @@ class UsersController extends Controller
             $user ->avatar =$filename;
             $user ->save();
         }
-        return view('profile', array('user'=> Auth::user()));
-}
+        
+        return view('perfil', array('user'=> Auth::user()));
+    }
 } 

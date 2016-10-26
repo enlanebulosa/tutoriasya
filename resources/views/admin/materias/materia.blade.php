@@ -55,41 +55,41 @@
 
 
 
-	$('#frmMateria').on('submit',function(e){
-		e.preventDefault();
-		var form=$('#frmMateria');
-		var formData=form.serialize();
-		var url =form.attr('action');
-		var state=$('#save').val();
-		var type = 'post';
-		if(state=='update'){
-			type='put';
-			}
-		$.ajax({
-				type : type,
-				url : url,
-				data : formData,
-				success:function(data){
-					var row='<tr id="materia'+ data.id +'">'+
-				'<td>'+ data.id +'</td>'+
-				'<td>'+ data.nombre +'</td>'+
-				'<td>'+ data.apellido +'</td>'+
-				'<td>'+ data.dni+'</td>'+
-				'<td>'+ data.email +'</td>'+
-				'<td>'+ data.tipo +'</td>'+
-				'<td><button class="btn btn-success btn-edit data-id"'+ data.id +'">Editar</button>'+
-	 			'<button class="btn btn-danger btn-delete" data-id"'+ data.id +'">Borrar</button></td>'+
-				'</tr>';
-				if(state=='save'){
-					$('tbody').append(row);
-					}else{
-						$('#materia'+data.id).replaceWith(row);
-						}
-					$('#frmMateria').trigger('reset');
-					$('#nombre').focus();
-					}
-		});
-	})
+//	$('#frmMateria').on('submit',function(e){
+//		e.preventDefault();
+//		var form=$('#frmMateria');
+//		var formData=form.serialize();
+//		var url =form.attr('action');
+//		var state=$('#save').val();
+//		var type = 'post';
+//		if(state=='update'){
+//			type='put';
+//			}
+//		$.ajax({
+//				type : type,
+//				url : url,
+//				data : formData,
+//				success:function(data){
+//					var row='<tr id="materia'+ data.id +'">'+
+//				'<td>'+ data.id +'</td>'+
+//				'<td>'+ data.nombre +'</td>'+
+//				'<td>'+ data.apellido +'</td>'+
+//				'<td>'+ data.dni+'</td>'+
+//				'<td>'+ data.email +'</td>'+
+//				'<td>'+ data.tipo +'</td>'+
+//				'<td><button class="btn btn-success btn-edit data-id"'+ data.id +'">Editar</button>'+
+//	 			'<button class="btn btn-danger btn-delete" data-id"'+ data.id +'">Borrar</button></td>'+
+//				'</tr>';
+//				if(state=='save'){
+//					$('tbody').append(row);
+//					}else{
+//						$('#materia'+data.id).replaceWith(row);
+//						}
+//					$('#frmMateria').trigger('reset');
+//					$('#nombre').focus();
+//					}
+//		});
+//	})
 
 	function addRow(data){
 		var row='<tr id="materia'+ data.id +'">'+

@@ -12,14 +12,14 @@ class RoutesController extends Controller
     public function checkAuth() {
         if(Auth::check()){
             if (Auth::user()->tipo == 'administrador'){
-                return view('admin');
+                return redirect('/admin');
             }
             else{
-                return view("home");
+                return redirect('/home');
             }
         }
         else{
-            return view('auth.login');
+            return view('inicio');
         }
     }
 }
