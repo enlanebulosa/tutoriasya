@@ -53,9 +53,9 @@
 
                     <!-- Authentication Links -->
                     @if (Auth::guest())
-                        <li><a href="{{ url('/register') }}">Registrarse</a></li>
+                        <li><a href="{{ url('/register') }}"><button type="button" class="btn btn-success active">Registrarse</button> </a></li>
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Iniciar sesión <span class="caret"></span></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <button type="button" class="btn btn-success active">Iniciar Sesion</button> <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                 <li><a href="{{ url('/login') }}">Login</a></li>
                                 <li><a href="#">Facebook</a></li>
@@ -75,6 +75,7 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="position:relative; padding-left: 50px;">
                             <img src='/uploads/avatars/{{Auth::user()->avatar}}' style="width:32px; height:32px; position:absolute;; top:10px; left:10px; border-radius: 50%">
                                 {{ Auth::user()->nombre }} <span class="caret"></span>
+                            
                             
                     
                             </a>
