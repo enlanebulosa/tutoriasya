@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('email', 45)->unique();
             $table->string('password', 120);
             $table->enum('tipo',['profesor','administrador','alumno'])->default('alumno');
-            $table->string('avatar', 45)->default('default.PNG');
+            $table->string('avatar', 45)->default('default.jpg');
             $table->rememberToken();
             $table->timestamps();
         });

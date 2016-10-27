@@ -52,7 +52,7 @@ class UsersController extends Controller
         
     public function profile(){
         
-        return view('perfil',array('user'=>Auth::user()));
+        return view('profile',array('user'=>Auth::user()));
     }
     
     public function update_avatar(Request $request){
