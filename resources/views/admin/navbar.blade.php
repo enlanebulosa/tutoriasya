@@ -12,7 +12,10 @@
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.css') }}"">
+    <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.css') }}">
+    <link href="/css/inicio.css" rel="stylesheet">
+    <script src="{{ asset('bootstrap/js/bootstrap.js') }}"></script>
+    <link href="https://fonts.googleapis.com/css?family=Droid+Sans|Pacifico" rel="stylesheet">
     <script src="{{ asset('bootstrap/js/bootstrap.js') }}"></script>
     
 
