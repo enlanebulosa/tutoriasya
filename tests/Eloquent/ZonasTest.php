@@ -21,14 +21,14 @@ class ZonasTest extends TestCase
     /**
      *
      */
-    public function testExample()
+    public function testZonas()
     {
-        //$this->assertTrue(true);
-        for ($x = 0; $x <= 10; $x++){
+        // Se crean 10 zonas con datos random y se testea que se carguen en la base de datos
+        for ($x = 0; $x <= 9; $x++){
             factory(Zona::class)->create( );
         }
         $zonas = Zona::all();
-        $this->assertCount(11,$zonas);
+        $this->assertCount(10,$zonas);
 
     }
 }

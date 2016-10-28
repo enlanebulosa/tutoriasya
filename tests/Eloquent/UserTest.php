@@ -19,17 +19,15 @@ class UserTest extends TestCase
     /**
      *
      */
-    public function testExample()
+    public function testUser()
     {
-        //$this->assertTrue(true);
-        //factory(User::class)->create( ['nombre' => 'pepe' , 'apellido'=>'perez' , 'email'=>'perez@gmail.com' , 'dni'=>'12341234' , 'password'=>'secret' ]);
-        factory(User::class)->create( ['nombre' => 'pepe' , 'tipo' => 'profesor']);
+        // Se crean 10 usuarios con datos random y se testea que se carguen en la base de datos
+        for ($x = 0; $x <= 9; $x++){
+            factory(User::class)->create( );
+        }
         $users = User::all();
-        //factory(Materia::class)->create(['nombre' => 'lengua' , 'nivel'=>'primario']);
-        //$materias = Materia::all();
-        $this->assertCount(1,$users);
-        //$this->assertCount(1,$materias);
-        //$this->assertEquals('pepe',User::)
+        $this->assertCount(10,$users);
+
 
     }
 }

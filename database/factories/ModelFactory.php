@@ -29,7 +29,7 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'apellido' => $faker->lastName,
         'email' => $faker->email,
         'dni' => $faker->randomNumber(8),
-        'tipo' => $faker->text,
+        'tipo' => $faker->randomElement(array('profesor','alumno','administrador')),
         'password' => bcrypt(str_random(6)),
 
     ];
