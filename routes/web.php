@@ -50,3 +50,8 @@ Route::group(['prefix' => 'admin'], function(){
 Route::get('agregaradmin', function(){
    return view('admin.usuarios.register');
 });
+
+// Rutas para pruebas
+Route::get('prueba', function(){
+   return view('inicio2');
+});
