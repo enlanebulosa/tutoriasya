@@ -12,8 +12,10 @@
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.css') }}"">
+    <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.css') }}">
+    <link href="/css/inicio.css" rel="stylesheet">
     <script src="{{ asset('bootstrap/js/bootstrap.js') }}"></script>
+    <link href="https://fonts.googleapis.com/css?family=Droid+Sans|Pacifico" rel="stylesheet">
     
 
     <!-- Scripts -->
@@ -53,9 +55,9 @@
 
                     <!-- Authentication Links -->
                     @if (Auth::guest())
-                        <li><a href="{{ url('/register') }}"><button type="button" class="btn btn-success active">Registrarse</button> </a></li>
+                        <li><button class="btn"><a href="{{ url('/register') }}">Registrarse</a></button></li>
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <button type="button" class="btn btn-success active">Iniciar Sesion</button> <span class="caret"></span></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <button class="btn"><a href="{{ url('/login') }}">Iniciar Sesión</a></button> <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                 <li><a href="{{ url('/login') }}">Login</a></li>
                                 <li><a href="#">Facebook</a></li>
