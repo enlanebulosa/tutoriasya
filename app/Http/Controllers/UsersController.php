@@ -26,6 +26,7 @@ class UsersController extends Controller
         $user=User::create($request->all());
         $user->password = bcrypt($request->password);
         $user->save();
+        flash('Se ha creado el usuario ' . $user->nombre . ' exitosamente.', 'success');
         return redirect('/admin/usuarios');
     }
 

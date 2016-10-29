@@ -10,7 +10,8 @@
 <div class="panel-body">
     @include('admin.materias.newMateria')
      <table class="table table-over">
-            <caption>Materias</caption>
+            <h1>Materias</h1>
+            @include('flash::message')
             <thead>
                     <th>ID</th>
                     <th>Nombre</th>

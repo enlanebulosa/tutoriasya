@@ -14,6 +14,7 @@ class MateriasController extends Controller
     
     public function newMateria(Request $request){
         $materia=Materia::create($request->all());
+        flash('Se ha creado la materia ' . $materia->nombre . ' exitosamente.', 'success');
         return redirect('admin/materias');
     } 
     

@@ -10,7 +10,8 @@
 <div class="panel-body">
 	@include('admin.usuarios.newUsers')
         <h1>Informacion de los Usuarios</h1>
-	 <table class="table table-over">
+        @include('flash::message')
+        <table class="table table-over">
 	 	<thead>
 	 		<th>ID</th>
 	 		<th>Nombre</th>
@@ -40,6 +41,7 @@
     {!! $users->render() !!}
 </div>
 </div>
+</div>
 @endsection  
 
 @section('scripts')
@@ -58,58 +60,6 @@
 		alert($(this).data('id'));
 	})
 
-
-
-
-	$('#frmUsers').on('submit',function(e){
-		e.preventDefault();
-		var form=$('#frmUsers');
-		var formData=form.serialize();
-		var url =form.attr('action');
-		var state=$('#save').val();
-		var type = 'post';
-		if(state=='update'){
-			type='put';
-			}
-		$.ajax({
-				type : type,
-				url : url,
-				data : formData,
-				success:function(data){
-					var row='<tr id="users'+ data.id +'">'+
-				'<td>'+ data.id +'</td>'+
-				'<td>'+ data.nombre +'</td>'+
-				'<td>'+ data.apellido +'</td>'+
-				'<td>'+ data.dni+'</td>'+
-				'<td>'+ data.email +'</td>'+
-				'<td>'+ data.tipo +'</td>'+
-				'<td><button class="btn btn-success btn-edit data-id"'+ data.id +'">Editar</button>'+
-	 			'<button class="btn btn-danger btn-delete" data-id"'+ data.id +'">Borrar</button></td>'+
-				'</tr>';
-				if(state=='save'){
-					$('tbody').append(row);
-					}else{
-						$('#users'+data.id).replaceWith(row);
-						}
-					$('#frmUsers').trigger('reset');
-					$('#NOMBRE').focus();
-					}
-		});
-	})
-
-	function addRow(data){
-		var row='<tr id="users'+ data.id +'">'+
-				'<td>'+ data.id +'</td>'+
-				'<td>'+ data.nombre +'</td>'+
-				'<td>'+ data.apellido+'</td>'+
-				'<td>'+ data.dni +'</td>'+
-				'<td>'+ data.email +'</td>'+
-				'<td>'+ data.tipo +'</td>'+
-				'<td><button class="btn btn-success btn-edit">Editar</button>'+
-	 			'<button class="btn btn-danger btn-delete">Borrar</button></td>'+
-				'</tr>';
-		$('tbody').append(row);
-	}
 	// boton editar
 	$('tbody').delegate('btn-edit','click',function(){
 		var value=$(this).data('id');
