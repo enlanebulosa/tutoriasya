@@ -168,6 +168,8 @@ return [
          */
         'Maatwebsite\Excel\ExcelServiceProvider',
 	Laracasts\Flash\FlashServiceProvider::class,
+        Jrean\UserVerification\UserVerificationServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
         //
 
         /*
@@ -178,7 +180,6 @@ return [
         App\Providers\AuthServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        Intervention\Image\ImageServiceProvider::class,
 
     ],
 
@@ -228,6 +229,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Excel' => 'Maatwebsite\Excel\Facades\Excel',
         'Image' => Intervention\Image\Facades\Image::class,
+        'UserVerification' => Jrean\UserVerification\Facades\UserVerification::class,
 
     ],
 
