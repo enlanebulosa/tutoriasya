@@ -10,11 +10,19 @@ use Image;
 class UsersController extends Controller
 {
     public function index(){
-    		$user=User::all();
-    		return view('paginacion',['user'=>$user]);
-    	}
+        $user=User::all();
+        return view('paginacion',['user'=>$user]);
         
-    public function newUser(Request $request){
+    }
+    
+    public function listProfesores(){
+        $users=User::where('tipo', 'profesor')
+                ->orderBy('id', 'ASC')
+                ->paginate(5);
+        return view('usuario/profesores')->with('users',$users);
+    }
+
+        public function newUser(Request $request){
         $user=User::create($request->all());
         $user->password = bcrypt($request->password);
         $user->save();
@@ -51,8 +59,8 @@ class UsersController extends Controller
     } 
         
     public function profile(){
+        return view('usuario/profile',array('user'=>Auth::user()));
         
-        return view('profile',array('user'=>Auth::user()));
     }
     
     public function update_avatar(Request $request){

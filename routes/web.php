@@ -28,6 +28,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index');
 Route::get('/', 'RoutesController@checkAuth');
 
+Route::get('profesores', 'UsersController@listProfesores');
+
 Route::group(['prefix' => 'admin'], function(){
     Route::get('/', 'AdminController@home');
     
@@ -53,5 +55,5 @@ Route::get('agregaradmin', function(){
 
 // Rutas para pruebas
 Route::get('prueba', function(){
-   return view('inicio2');
+   return view('/usuario/profesor');
 });

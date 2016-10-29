@@ -69,7 +69,7 @@
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">Perfil</a></li>
+                            <li><a href="{{ url('/profile') }}">Perfil</a></li>
                             <li><a href="#">Mis Tutorias</a></li>
                             <li><a href="#">Mensajes Privados</a></li>
                             <li><a href="#">Configuración</a></li>
@@ -98,8 +98,20 @@
 
     @yield('content')
 
+    <br/>
+        <footer>
+            <div style="position:bottom; background-color:black">
+                <br/>
+                <center><font color="white"><div id="copyright text-right">© Copyright 2016 TutoriasYa! UNAJ</div></font></center>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+            </div>
+        </footer>
+    </body>
+    
     <!-- Scripts -->
     <script src="/js/app.js"></script>
     @yield('scripts')
-</body>
 </html>

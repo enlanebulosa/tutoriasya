@@ -105,22 +105,18 @@
 
     @yield('content')
     
-<br/>
-<br/>
-<br/>
-<br/>
-<br/><br/>
-    <footer>
-        <div style="position:bottom; background-color:black">
-            <br/>
-            <center><font color="white"><div id="copyright text-right">© Copyright 2016 TutoriasYa! UNAJ</div></font></center>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-        </div>
-    </footer>
-</body>
+    <br/>
+        <footer>
+            <div style="position:bottom; background-color:black">
+                <br/>
+                <center><font color="white"><div id="copyright text-right">© Copyright 2016 TutoriasYa! UNAJ</div></font></center>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+            </div>
+        </footer>
+    </body>
     
     <!-- Scripts -->
     <script src="/js/app.js"></script>
