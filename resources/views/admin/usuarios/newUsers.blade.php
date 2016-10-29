@@ -9,7 +9,7 @@
             <h4 class="modal-title">Informacion de Usuario</h4>
         </div>
         <div class="modal-body">
-            <form role="form" method="POST" action="{{ url('/admin/newuser') }}" id="frmUsers">
+            <form class="form-horizontal" role="form" method="POST" action="{{ url('/admin/usuarios/crearusuario') }}" id="frmUsers">
                 {{ csrf_field() }}
                   
 

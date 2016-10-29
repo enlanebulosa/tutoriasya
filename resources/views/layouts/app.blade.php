@@ -55,15 +55,8 @@
 
                     <!-- Authentication Links -->
                     @if (Auth::guest())
-                        <li><button class="btn"><a href="{{ url('/register') }}">Registrarse</a></button></li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <button class="btn"><a href="{{ url('/login') }}">Iniciar Sesión</a></button> <span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                <li><a href="{{ url('/login') }}">Login</a></li>
-                                <li><a href="#">Facebook</a></li>
-                                <li><a href="#">Twitter</a></li>
-                                <li><a href="#">Google+</a></li>
-            
+                        <li><a href="{{ url('/register') }}"><button class="btn">Registrarse</button></a></li>
+                        <li><a href="{{ url('/login') }}"><button class="btn">Iniciar Sesión</button></a></li>
             
           </ul>
 

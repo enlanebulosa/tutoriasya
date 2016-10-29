@@ -9,15 +9,16 @@ and open the template in the editor.
 */
 
 .navbar{
-/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#4f85bb+0,4f85bb+100;Blue+3D+%239 */
-background: rgb(79,133,187); /* Old browsers */
-background: -moz-linear-gradient(top, rgba(79,133,187,1) 0%, rgba(79,133,187,1) 100%); /* FF3.6-15 */
-background: -webkit-linear-gradient(top, rgba(79,133,187,1) 0%,rgba(79,133,187,1) 100%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to bottom, rgba(79,133,187,1) 0%,rgba(79,133,187,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4f85bb', endColorstr='#4f85bb',GradientType=0 ); /* IE6-9 */
-height: 100px;
-margin-bottom: 0px;
-border-bottom: 0px;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#4f85bb+0,4f85bb+100;Blue+3D+%239 */
+    background: rgb(79,133,187); /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(79,133,187,1) 0%, rgba(79,133,187,1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(79,133,187,1) 0%,rgba(79,133,187,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(79,133,187,1) 0%,rgba(79,133,187,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4f85bb', endColorstr='#4f85bb',GradientType=0 ); /* IE6-9 */
+    height: 100px;
+    min-height: 50px;
+    margin-bottom: 20px;
+    border-bottom: 0px;
     
 }
 
@@ -43,8 +44,8 @@ border-bottom: 0px;
 .navbar-default .navbar-nav > li > a {
     color: #ffffff;
     font-family: 'Droid Sans', sans-serif;
-    font-size: 18px;
     line-height: 75px;
+    padding: 7px;
 }
 
 
@@ -57,19 +58,21 @@ border-bottom: 0px;
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed',GradientType=0 ); /* IE6-9 */
     align-self: center;
     margin: 5px;
-    margin-top: 35px;
-    padding: 7px;
+    margin-top: 20px;
     font-family: 'Droid Sans', sans-serif;
+    color: rgb(79,133,187);
+    font-size: 16px;
  
 }
 
 .navbar-default .btn:hover {
-/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#feffff+0,d2ebf9+100;Blue+3D+%2312 */
-background: rgb(254,255,255); /* Old browsers */
-background: -moz-linear-gradient(top, rgba(254,255,255,1) 0%, rgba(210,235,249,1) 100%); /* FF3.6-15 */
-background: -webkit-linear-gradient(top, rgba(254,255,255,1) 0%,rgba(210,235,249,1) 100%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to bottom, rgba(254,255,255,1) 0%,rgba(210,235,249,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#feffff', endColorstr='#d2ebf9',GradientType=0 ); /* IE6-9 */
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#feffff+0,d2ebf9+100;Blue+3D+%2312 */
+    background: rgb(254,255,255); /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(254,255,255,1) 0%, rgba(210,235,249,1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(254,255,255,1) 0%,rgba(210,235,249,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(254,255,255,1) 0%,rgba(210,235,249,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#feffff', endColorstr='#d2ebf9',GradientType=0 ); /* IE6-9 */
+    color: rgb(79,133,187);
 }
 
 .btn:focus,
@@ -78,15 +81,15 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#feffff', end
 .btn.focus,
 .btn:active.focus,
 .btn.active.focus {
-  outline: 5px auto -webkit-focus-ring-color;
-  outline-offset: -2px;
+    outline: 5px auto -webkit-focus-ring-color;
+    outline-offset: -2px;
 }
 
 .btn:hover,
 .btn:focus,
 .btn.focus {
-  color: #eeeeee;
-  text-decoration: none;
+    color: #eeeeee;
+    text-decoration: none;
 }
 
 .carousel-inner {
