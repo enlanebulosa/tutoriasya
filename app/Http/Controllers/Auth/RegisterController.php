@@ -8,6 +8,14 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use \Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Mail\Mailable;
+use Illuminate\Mail\Mailer;
+
+use Jrean\UserVerification\Traits\VerifiesUsers; 
+use Jrean\UserVerification\Facades\UserVerification;
+use Jrean\UserVerification\Traits\RedirectsUsers; 
+
 class RegisterController extends Controller
 {
     /*
@@ -22,6 +30,7 @@ class RegisterController extends Controller
     */
 
     use RegistersUsers;
+    use VerifiesUsers;
 
     /**
      * Where to redirect users after login / registration.
@@ -37,32 +46,11 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        //Hay que configurar el middleware para que permita construir usuarios a los admin.
         //$this->middleware('guest');
+        $this->middleware('guest', ['except' => ['getVerification', 'getVerificationError']]); 
+       
     }
-    
-    /**
-     * Version sobreescrita para desactivar el auto login.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function register(Request $request)
-    {
-        $this->validator($request->all())->validate();
-
-//        $this->guard()->login($this->create($request->all()));
-        $this->create($request->all());
-        return redirect($this->redirectPath());
-    }
-
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    protected function validator(array $data)
+     protected function validator(array $data)
     {
         return Validator::make($data, [
             'nombre' => 'required|max:255',
@@ -73,14 +61,8 @@ class RegisterController extends Controller
             'dni' => 'required|min:7|max:8',
         ]);
     }
-
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return User
-     */
-    protected function create(array $data)
+    
+     protected function create(array $data)
     {
         return User::create([
             'nombre' => $data['nombre'],
@@ -90,5 +72,25 @@ class RegisterController extends Controller
             'dni' => $data['dni'],
             'apellido' => $data['apellido'],
         ]);
+        
     }
+    /**
+     * Version sobreescrita para desactivar el auto login.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+        
+        //$this->guard()->login($this->create($request->all()));
+        $user = $this->create($request->all());
+        
+        UserVerification::generate($user);
+        UserVerification::send($user, 'Verifique su correo'); 
+        return redirect($this->redirectPath());
+    }
+
+   
 }
