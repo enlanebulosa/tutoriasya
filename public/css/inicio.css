@@ -32,12 +32,12 @@ and open the template in the editor.
     font-family: 'Pacifico', cursive;
 }
 .navbar-default .navbar-brand {
-    color: #ffffff;
+    color: #ffffff; /*color del logo*/
 }
 
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
-  color: #eeeeee;
+  color: #000000;  /* color de resaltado cuando nos posicionamols en el logo*/
   background-color: transparent;
 }
 
@@ -88,7 +88,7 @@ and open the template in the editor.
 .btn:hover,
 .btn:focus,
 .btn.focus {
-    color: #eeeeee;
+    color: #000000; /* color de las letras, cuando acercamos el mouse*/
     text-decoration: none;
 }
 
