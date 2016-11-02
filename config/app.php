@@ -231,6 +231,7 @@ return [
         'Excel' => 'Maatwebsite\Excel\Facades\Excel',
         'Image' => Intervention\Image\Facades\Image::class,
         'UserVerification' => Jrean\UserVerification\Facades\UserVerification::class,
+	'Gmaps' => GeneaLabs\Phpgmaps\Facades\PhpgmapsFacade::class,
 
     ],
 
