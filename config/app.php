@@ -170,6 +170,7 @@ return [
 	Laracasts\Flash\FlashServiceProvider::class,
         Jrean\UserVerification\UserVerificationServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
+	GeneaLabs\Phpgmaps\PhpgmapsServiceProvider::class,
         //
 
         /*
@@ -230,6 +231,7 @@ return [
         'Excel' => 'Maatwebsite\Excel\Facades\Excel',
         'Image' => Intervention\Image\Facades\Image::class,
         'UserVerification' => Jrean\UserVerification\Facades\UserVerification::class,
+	'Gmaps' => GeneaLabs\Phpgmaps\Facades\PhpgmapsFacade::class,
 
     ],
 
