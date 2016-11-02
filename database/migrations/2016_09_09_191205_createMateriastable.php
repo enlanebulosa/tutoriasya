@@ -15,22 +15,22 @@ class CreateMateriastable extends Migration
         Schema::create('materias', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre', 45);
-            $table->string('nivel');
+            $table->enum('tipo',['Universitario','Secundario','Primario']);
             $table->timestamps();
         });
-        
+
         Schema::create('user_materia', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('id_usuario')->unsigned();
-            $table->integer('id_materia')->unsigned(); 
-            
+            $table->integer('id_materia')->unsigned();
+
             $table->foreign('id_usuario')->references('id')->on('users');
-            $table->foreign('id_materia')->references('id')->on('materias'); 
-           
+            $table->foreign('id_materia')->references('id')->on('materias');
+
             $table->timestamps();
-            
+
        });
-        
+
     }
 
     /**
