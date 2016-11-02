@@ -170,6 +170,7 @@ return [
 	Laracasts\Flash\FlashServiceProvider::class,
         Jrean\UserVerification\UserVerificationServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
+	GeneaLabs\Phpgmaps\PhpgmapsServiceProvider::class,
         //
 
         /*
