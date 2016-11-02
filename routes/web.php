@@ -13,7 +13,7 @@
 
 
 Auth::routes();
-
+Route::get('/gmaps', ['as' => 'gmaps', 'uses' => 'GmapsController@index']);
 Route::get('/home', 'HomeController@index');
 Route::get('/', 'RoutesController@checkAuth');
 
