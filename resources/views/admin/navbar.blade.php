@@ -17,7 +17,7 @@
     <script src="{{ asset('bootstrap/js/bootstrap.js') }}"></script>
     <link href="https://fonts.googleapis.com/css?family=Droid+Sans|Pacifico" rel="stylesheet">
     <script src="{{ asset('bootstrap/js/bootstrap.js') }}"></script>
-    
+
 
     <!-- Scripts -->
     <script>
@@ -47,10 +47,11 @@
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
-                <ul class="nav navbar-nav"> 
+                <ul class="nav navbar-nav">
                     &nbsp;
                     <li><a href="/admin/usuarios">Usuarios</a></li>
                     <li><a href="/admin/materias">Materias</a></li>
+                    <li><a href="/admin/tutorias">Tutorias</a></li>
                     &nbsp;
                 </ul>
 
@@ -61,9 +62,9 @@
                     @if (!Auth::guest())
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
-                        <li class="dropdown"> 
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                {{ Auth::user()->session }}{{ Auth::user()->nombre }} <span class="caret"></span>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="position:relative; padding-left: 50px;">
+                            <img src='/uploads/avatars/{{Auth::user()->avatar}}' style="width:32px; height:32px; position:absolute;; top:30px; left:10px; border-radius: 50%">{{ Auth::user()->session }}{{ Auth::user()->nombre }} <span class="caret"></span>
 
 
                             </a>
@@ -95,9 +96,11 @@
             </div>
         </div>
     </nav>
-
-    @yield('content')
-
+    <div class="container">
+      <div class="panel panel-default" style="min-height: 350px">
+        @yield('content')
+      </div>
+    </div>
     <br/>
         <footer>
             <div style="position:bottom; background-color:black">
@@ -110,7 +113,7 @@
             </div>
         </footer>
     </body>
-    
+
     <!-- Scripts -->
     <script src="/js/app.js"></script>
     @yield('scripts')
