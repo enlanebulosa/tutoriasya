@@ -11,10 +11,10 @@ class UsersController extends Controller
 {
     public function index(){
         $user=User::all();
-        return view('paginacion',['user'=>$user]);
-        
+        return view('paginacion')->with('users',$users);
+
     }
-    
+
     public function listProfesores(){
         $users=User::where('tipo', 'profesor')
                 ->orderBy('id', 'ASC')
@@ -31,12 +31,12 @@ class UsersController extends Controller
     }
 
     public function getUpdate(Request $request){
-    	if ($request->ajax()) 
+    	if ($request->ajax())
     	{
     		$user=User::find($request->id);
-    		return Response($user);	
+    		return Response($user);
     		}
-    	} 
+    	}
 
     public function newUpdate(Request $request){
     	if ($request->ajax()) {
@@ -48,33 +48,33 @@ class UsersController extends Controller
     		$user->tipo=$request->tipo;
     		$user->save();
 
-    		return Response($user);	
+    		return Response($user);
     		}
-    	} 
+    	}
     public function deleteUser(Request $request){
-    	if ($request->ajax()) 
+    	if ($request->ajax())
     	{
     		User::destroy($request->id);
-    		return Response()->json(['sms'=>'Eliminado correctamente']);	
+    		return Response()->json(['sms'=>'Eliminado correctamente']);
     		}
-    } 
-        
+    }
+
     public function profile(){
         return view('usuario/profile',array('user'=>Auth::user()));
-        
+
     }
-    
+
     public function update_avatar(Request $request){
         if($request->hasFile('avatar')){
             $avatar=$request->file('avatar');
             $filename =time().'.'.$avatar->getClientOriginalExtension();
-            
+
             Image::make($avatar)->resize(300,300)->save(public_path('/uploads/avatars/'.$filename));
             $user =Auth::user();
             $user ->avatar =$filename;
             $user ->save();
         }
-        
+
         return view('perfil', array('user'=> Auth::user()));
     }
-} 
+}
