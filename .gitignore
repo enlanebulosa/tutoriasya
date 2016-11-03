@@ -1,5 +1,13 @@
+<<<<<<< HEAD
 /vendor
 /node_modules
 Homestead.yaml
 Homestead.json
 .env
+=======
+.env
+composer.lock
+vendor/
+public/uploads/avatars/1478127615.jpg
+public/uploads/avatars/1478127682.jpg
+>>>>>>> 51452fa77722526ec07276a6dc6242beea5f6770

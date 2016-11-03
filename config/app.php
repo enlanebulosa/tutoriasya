@@ -162,7 +162,11 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+<<<<<<< HEAD
         'Collective\Html\HtmlServiceProvider',
+=======
+        Collective\Html\HtmlServiceProvider::class,
+>>>>>>> 51452fa77722526ec07276a6dc6242beea5f6770
 
         /*
          * Package Service Providers...
@@ -234,8 +238,14 @@ return [
         'Form' => 'Collective\Html\FormFacade',
 		'Html' => 'Collective\Html\HtmlFacade',
         'UserVerification' => Jrean\UserVerification\Facades\UserVerification::class,
+<<<<<<< HEAD
 	'Gmaps' => GeneaLabs\Phpgmaps\Facades\PhpgmapsFacade::class,
 
+=======
+	    'Gmaps' => GeneaLabs\Phpgmaps\Facades\PhpgmapsFacade::class,
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
+>>>>>>> 51452fa77722526ec07276a6dc6242beea5f6770
     ],
 
 ];

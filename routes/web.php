@@ -13,6 +13,9 @@
 
 
 Auth::routes();
+Route::patch('/profesores',[
+    'as' => 'user.usuario.profesores',
+]);
 
 Route::get('/gmaps', ['as' => 'gmaps', 'uses' => 'GmapsController@index']);
 Route::get('/home', 'HomeController@index');
