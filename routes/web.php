@@ -31,6 +31,8 @@ Route::group(['middleware' => ['web', 'isVerified']], function () {
 
         Route::group(['middleware' => ['web', 'isAdmin']], function () {
             Route::group(['prefix' => 'admin'], function(){
+				Route::resource('usuarios', 'UsersController');
+				Route::get('usuarios/{id}/destroy',['uses' => 'UsersController@destroy','as' => 'usuarios.destroy']);
                 Route::get('/', 'AdminController@home');
 
                 #Habria que hacer un middleware para evitar que un guest pueda crear materias.
@@ -76,3 +78,4 @@ Route::get("/buscar",function(){
 //    'uses' => 'TestController@view',
 //    'as' => 'domicilio'
 //]);
+ 

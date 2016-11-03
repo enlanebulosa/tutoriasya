@@ -50,7 +50,32 @@ class UsersController extends Controller
 
     		return Response($user);	
     		}
-    	} 
+    	}
+      
+    public function edit($id){
+		$user =User::find($id);
+		return view('admin.usuarios.edit')->with('user',$user);
+	}
+	
+	public function update(Request $request,$id){
+		$user=User::find($id);
+    	$user->nombre=$request->nombre;
+    	$user->apellido=$request->apellido;
+    	$user->dni=$request->dni;
+    	$user->email=$request->email;
+    	$user->tipo=$request->tipo;
+    	$user->save();
+    	dd($user);
+    	//Flash::warning('El usuario', $user->nombre, 'fue editado correctamente');
+    	return redirect()->route('admin/usuarios');
+	}
+	 public function destroy($id){
+		 $user=User::find($id);
+		 $user->delete();
+		 //Flash::error('El usuario', $user->nombre, 'fue borrado correctamente');
+		 return redirect('/admin/usuarios');
+	}	
+    	 
     public function deleteUser(Request $request){
     	if ($request->ajax()) 
     	{
@@ -63,6 +88,8 @@ class UsersController extends Controller
         return view('usuario/profile',array('user'=>Auth::user()));
         
     }
+     public function show($id){
+	}
     
     public function update_avatar(Request $request){
         if($request->hasFile('avatar')){

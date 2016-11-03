@@ -28,6 +28,9 @@
 	 			<td>{{$user ->email}}</td>
 	 			<td>{{$user ->tipo}}</td>
 	 			<td>
+			
+					<a href="{{ route('usuarios.destroy', $user->id) }}"onclick="return confirm('¿Seguro deseas eliminarlo?')" class="btn btn-danger ">
+					Borrar</a>
 	 				<button class="btn btn-success btn-edit" data-id="{{$user->id}}"><i class="glyphicon glyphicon-saved"></i  >Editar</button>
 	 				<button class="btn btn-danger btn-delete" data-id="{{$user->id}}"><i class="glyphicon glyphicon-remove"></i>Borrar</button>
 
