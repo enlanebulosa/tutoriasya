@@ -57,4 +57,35 @@ class User extends Model implements AuthenticatableContract
     {
         return $this->hasMany('App\Mensaje', 'id_receptor');
     }
+    public function scopeName($query, $name)
+    {
+        if ($name !=""){
+                    #$query->where('nombre', $name);
+                    $query->where(\DB::raw("CONCAT(nombre)"), "LIKE", "%$name%");
+        }
+    }
+    public function scopeApellido($query, $apellido)
+    {
+        if ($apellido !=""){
+                    #$query->where('nombre', $name);
+                    $query->where(\DB::raw("CONCAT(apellido)"), "LIKE", "%$apellido%");
+        }
+    }
+      public function scopeEmail($query, $email)
+    {
+        if ($email !=""){
+                    #$query->where('nombre', $name);
+                    $query->where(\DB::raw("CONCAT(email)"), "LIKE", "%$email%");
+        }
+    }
+
+    public function scopeTipo($query, $tipo)
+    {
+
+    if($tipo != "" && isset($tipo[$tipo]))
+        {
+        $query->where('tipo,$tipo');
+        }
+    }
 }
+
