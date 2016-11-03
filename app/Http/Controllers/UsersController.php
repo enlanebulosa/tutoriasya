@@ -15,14 +15,19 @@ class UsersController extends Controller
 
     }
 
-    public function listProfesores(){
-        $users=User::where('tipo', 'profesor')
-                ->orderBy('id', 'ASC')
-                ->paginate(5);
-        return view('usuario/profesores')->with('users',$users);
+    public function listProfesores(Request $request){
+
+        $users=User::Name($request->get('nombre'))
+            ->where('tipo','profesor')
+             ->apellido($request->get('apellido'))
+             ->tipo($request->get('tipo'))
+             ->email($request->get('email'))
+             ->orderBy('id', 'ASC')
+             ->paginate(5);
+       return view('usuario/profesores')->with('users',$users);
     }
 
-        public function newUser(Request $request){
+    public function newUser(Request $request){
         $user=User::create($request->all());
         $user->password = bcrypt($request->password);
         $user->save();
@@ -75,6 +80,6 @@ class UsersController extends Controller
             $user ->save();
         }
 
-        return view('perfil', array('user'=> Auth::user()));
+        return view('usuario/profile', array('user'=> Auth::user()));
     }
 }

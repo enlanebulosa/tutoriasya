@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+ <body style="background-color: #3bbaa7 ">
+
 <div class="container">
     <div class="row">
         <div class="span6">
@@ -66,4 +68,10 @@
         </div>
         </div>
     </div>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
 @endsection

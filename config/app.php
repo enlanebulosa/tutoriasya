@@ -162,6 +162,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        Collective\Html\HtmlServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -231,8 +232,9 @@ return [
         'Excel' => 'Maatwebsite\Excel\Facades\Excel',
         'Image' => Intervention\Image\Facades\Image::class,
         'UserVerification' => Jrean\UserVerification\Facades\UserVerification::class,
-	'Gmaps' => GeneaLabs\Phpgmaps\Facades\PhpgmapsFacade::class,
-
+	    'Gmaps' => GeneaLabs\Phpgmaps\Facades\PhpgmapsFacade::class,
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
     ],
 
 ];

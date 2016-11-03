@@ -63,7 +63,7 @@
                     @else
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
-                        <li><a href="{{ url('/buscar') }}"><span class="glyphicon glyphicon-search"></span></a>
+                        <li><a href="{{ url('/profesores') }}"><span class="glyphicon glyphicon-search"></span></a>
                         </li>
                         <li><a href="#">Mis Tutores<span class="sr-only">(current)</span></a></li>
                         <li class="dropdown">
