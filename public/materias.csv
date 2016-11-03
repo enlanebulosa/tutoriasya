@@ -1,11 +1,11 @@
-nom,;niv
-Matematica,;Universitario
-Fisica,;Universitario
-Taller de Ingenieria,;Universitario
-Sistemas de Representacion,;Universitario
-Lengua,;Primaria
-Ingles,;Primaria
-Filosofia,;Secundaria
-Quimica,;Secundaria
-Ciencia Sociales,;Secundaria
-Ciencia Naturales,;Secundaria
+nom,niv
+Matematica,Universitario
+Fisica,Universitario
+Taller de Ingenieria,Universitario
+Sistemas de Representacion,Universitario
+Lengua,Primario
+Ingles,Primario
+Filosofia,Secundario
+Quimica,Secundario
+Ciencia Sociales,Secundario
+Ciencia Naturales,Secundario
