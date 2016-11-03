@@ -80,6 +80,6 @@ class UsersController extends Controller
             $user ->save();
         }
         
-        return view('perfil', array('user'=> Auth::user()));
+        return view('profile', array('user'=> Auth::user()));
     }
 } 

@@ -32,19 +32,22 @@
         <br/>
         <br/>
         <br/>
+
+        
         <div class="panel panel-warning">
          <div class="panel-heading">
         <center><font face="Comic Sans MS,arial,verdana">Historial</font></center>
         </div>
         
         <div class="panel-body">
-        {{$user->nombre}} se conectó por última vez en el {{$user->updated_at}} <br/>
+        {{$user->nombre}} actualizó sus datos por última el: {{$user->updated_at}} <br/>
         <br/>
         {{$user->nombre}} se registró en {{$user->created_at}}<br/>
         </div>
          </div>
          </div>
     </div>
+    <br/>
 </div>
 
 
