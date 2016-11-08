@@ -56,8 +56,7 @@ class UsersController extends Controller
     		return Response($user);
     		}
     	}
-<<<<<<< HEAD
-      
+
     public function edit($id){
 		$user =User::find($id);
 		return view('admin.usuarios.edit')->with('user',$user);
@@ -71,9 +70,8 @@ class UsersController extends Controller
     	$user->email=$request->email;
     	$user->tipo=$request->tipo;
     	$user->save();
-    	dd($user);
     	//Flash::warning('El usuario', $user->nombre, 'fue editado correctamente');
-    	return redirect()->route('admin/usuarios');
+    	return redirect('admin/usuarios');
 	}
 	 public function destroy($id){
 		 $user=User::find($id);
@@ -82,8 +80,7 @@ class UsersController extends Controller
 		 return redirect('/admin/usuarios');
 	}	
     	 
-=======
->>>>>>> 51452fa77722526ec07276a6dc6242beea5f6770
+
     public function deleteUser(Request $request){
     	if ($request->ajax())
     	{
@@ -96,13 +93,11 @@ class UsersController extends Controller
         return view('usuario/profile',array('user'=>Auth::user()));
 
     }
-<<<<<<< HEAD
+
      public function show($id){
 	}
     
-=======
 
->>>>>>> 51452fa77722526ec07276a6dc6242beea5f6770
     public function update_avatar(Request $request){
         if($request->hasFile('avatar')){
             $avatar=$request->file('avatar');
@@ -116,8 +111,8 @@ class UsersController extends Controller
 
         return view('usuario/profile', array('user'=> Auth::user()));
     }
-<<<<<<< HEAD
+
 } 
-=======
-}
->>>>>>> 51452fa77722526ec07276a6dc6242beea5f6770
+
+
+

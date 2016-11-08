@@ -1,23 +1,16 @@
-<!-- Modal -->
-<!DOCTYPE html>
  <!-- Modal -->
+ <!DOCTYPE html>
+ </div>
+ <!-- Modal -->
+
   <div class="modal fade" id="users" role="dialog">
     <div class="modal-dialog">
-
-
       <div class="modal-content">
         <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-            
-            <h4 class="modal-title">Editar Usuario {{$user->nombre}} </h4> 
-            
-            
-        </div>
+            <h4 class="modal-title">Editar Usuario {{$user->nombre}} </h4>    
+        </div>   
         <div class="modal-body">
-			
-            <form class="form-horizontal" role="form" method="PUT" action="{{ url('/admin/usuarios/{usuario}')}}" id="frmUsers">
-                {{ csrf_field() }} 
-                                 
+			 {!!Form::model($user,['route'=>[ 'usuarios.update',$user->id ], 'method' => 'PATCH'])!!} 	                    
                 <div class="form-group{{ $errors->has('nombre') ? ' has-error' : '' }}">
                     <label for="nombre" class="col-md-4 control-label">Nombre </label>
                     
@@ -95,12 +88,7 @@
                             </span>
                         @endif
                     </div>
-                </div>
-
-               
-               
-               
-                        
+                </div>         
                 <div class="modal-footer">
                     {{ csrf_field() }}
                     <button type="submit" class="btn btn-primary" id='save'>Editar</button>
