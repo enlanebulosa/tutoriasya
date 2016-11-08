@@ -11,6 +11,7 @@
         "laracasts/flash": "^2.0",
         "jrean/laravel-user-verification": "^3.0",
         "genealabs/phpgmaps": "~0.3.0",
+        "laravelcollective/html": "~5.0",
         "laravelcollective/html": "^5.3"
     },
     "require-dev": {

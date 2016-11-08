@@ -1,5 +1,8 @@
+/vendor
+/node_modules
+Homestead.yaml
+Homestead.json
 .env
 composer.lock
 vendor/
-public/uploads/avatars/1478127615.jpg
-public/uploads/avatars/1478127682.jpg
+/public/uploads/avatars
