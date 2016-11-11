@@ -110,7 +110,7 @@
 
 <ul id="profesores">
   <li><a href="#" class="header">Profesor</a></li>
-  <li><a href="#"><img src='/uploads/avatars/{{$user->avatar}}' style="width:80px; height:80px; float:left; border-radius:50%; margin-right:25px;"> {{ $user->nombre }}
+  <li><a href="{{ url('/profile/'.$user->id) }}"><img src='/uploads/avatars/{{$user->avatar}}' style="width:80px; height:80px; float:left; border-radius:50%; margin-right:25px;"> {{ $user->nombre }}
   
  {{ $user->apellido }}
   <br/>{{ $user->email }}<br/><br/><br/></a></li>

@@ -76,7 +76,7 @@
                             </a>
                              
                             <ul class="dropdown-menu" role="menu">
-                            <li><a href="{{ url('/profile') }}">Perfil</span>
+                            <li><a href="{{ url('/profile/'.Auth::user()->id) }}">Perfil</span>
                             </a></li>
                             <li><a href="#">Mis Tutorias</a></li>
                             <li><a href="#">Mensajes Privados</a></li>

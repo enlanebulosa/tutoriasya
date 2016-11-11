@@ -81,4 +81,8 @@ Route::get("/buscar",function(){
 //    'uses' => 'TestController@view',
 //    'as' => 'domicilio'
 //]);
- 
+
+Route::get('/profile/{id}', [
+        'as'    => 'profile',
+        'uses'  => 'UsersController@viewProfile'
+]);

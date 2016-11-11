@@ -14,6 +14,19 @@ class UsersController extends Controller
         return view('paginacion')->with('users',$users);
 
     }
+    public function viewProfile($userId = null) {
+        $user = null;
+
+        if($userId != null) {
+            $user = User::find($userId);
+        } else {
+            $user = User::find(Auth::user()->id);
+        }
+
+        return view('/profile', [
+            'user' => $user
+        ]);
+    }
 
     public function listProfesores(Request $request){
 
