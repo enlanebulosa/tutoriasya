@@ -18,7 +18,7 @@ class MateriaSeeder extends Seeder
         foreach ($reader->get() as $materia) {
                 Materia::create([
                         'nombre' => $materia->nom,
-                        'nivel' =>$materia->niv
+                        'tipo' =>$materia->tip
 
                 ]);
         }

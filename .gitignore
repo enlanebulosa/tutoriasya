@@ -6,3 +6,4 @@ Homestead.json
 composer.lock
 vendor/
 /public/uploads/avatars
+/.idea
