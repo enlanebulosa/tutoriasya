@@ -10,16 +10,25 @@ use DB;
 class UserMateriaController extends Controller
 {
     public function index(){
-        $users=User::has('materias')->paginate(10);;
-    		return view('paginacionum',['users'=>$users]);
+        $users=User::has('materias')->paginate(10);
+        return view('paginacionum',['users'=>$users]);
     	}
-    public function nuevaTutoria(Request $request){
-    		$user=User::find($request->id_usuario);
-        $id_materia=Materia::where('nombre',$request->materia)->where('nivel',$request->nivel)->first()->id;
 
+    public function nuevaTutoria(Request $request){
+        $user=User::find($request->id_usuario);
+        $id_materia=Materia::where('nombre',$request->materia)->where('nivel',$request->nivel)->first()->id;
         $user->materias()->attach($id_materia);
-    		return redirect('/');
+    	return redirect('/');
     	}
+
+    public function ingresarEnTutoria(Request $request)
+    {
+        $user=User::find($request->id_usuario);
+        $id_materia=Materia::where('nombre',$request->materia)->where('tipo',$request->tipo)->first()->id;
+        $user->materias()->attach($id_materia);
+    	return redirect('/');
+
+    }
     public function getUpdate(Request $request){
     	if ($request->ajax())
     	{
@@ -42,4 +51,11 @@ class UserMateriaController extends Controller
     		return Response()->json(['sms'=>'Relacion eliminada correctamente']);
     		}
     	}
+
+    public function mostrarFormulario()
+    {
+        $materias = Materia::all();
+        return view('usuario/nuevatutoria', ['materias' => $materias]);
+
+    }
 }

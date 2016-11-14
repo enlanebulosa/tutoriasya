@@ -9,7 +9,7 @@
             <h4 class="modal-title">Informacion de la tutoría</h4>
         </div>
         <div class="modal-body">
-            <form class="form-horizontal" role="form" method="POST" action="{{ url('/admin/tutorias/creartutoria') }}" id="frmUsers">
+            <form class="form-horizontal" role="form" method="POST" action="{{ url('/agregartutoria') }}" id="frmUsers">
                 {{ csrf_field() }}
 
 
@@ -17,7 +17,7 @@
                     <label for="id_usuario" class="col-md-4 control-label">Id del Usuario</label>
 
                     <div class="col-md-6">
-                        <input id="id_usuario" type="number" class="form-control" name="id_usuario" value="{{ old('id_usuario') }}" autofocus>
+                        <input id="id_usuario" type="hidden" class="form-control" name="id_usuario" value="{{ Auth::user() -> id }}" autofocus>
 
                         @if ($errors->has('id_usuario'))
                             <span class="help-block">

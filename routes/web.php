@@ -31,6 +31,8 @@ Route::group(['middleware' => ['web', 'isVerified']], function () {
 
         Route::get('/profile', 'UsersController@profile');
         Route::post('profile','UsersController@update_avatar');
+        Route::get('/agregartutoria', 'UserMateriaController@mostrarFormulario');
+        Route::post('agregartutoria', 'UserMateriaController@ingresarEnTutoria');
 
         Route::group(['middleware' => ['web', 'isAdmin']], function () {
             Route::group(['prefix' => 'admin'], function(){
