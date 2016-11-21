@@ -32,15 +32,14 @@ Route::group(['middleware' => ['web', 'isVerified']], function () {
         Route::get('/profile', 'UsersController@profile');
         Route::post('profile','UsersController@update_avatar');
         Route::get('/agregartutoria', 'UserMateriaController@mostrarFormulario');
-        Route::post('agregartutoria', 'UserMateriaController@ingresarEnTutoria');
+        Route::post('agregartutoria', 'UserMateriaController@nuevaTutoria');
 
         Route::group(['middleware' => ['web', 'isAdmin']], function () {
             Route::group(['prefix' => 'admin'], function(){
-				Route::resource('usuarios', 'UsersController');
-				Route::get('usuarios/{id}/destroy',['uses' => 'UsersController@destroy','as' => 'usuarios.destroy']);
+        				Route::resource('usuarios', 'UsersController');
+        				Route::get('usuarios/{id}/destroy',['uses' => 'UsersController@destroy','as' => 'usuarios.destroy']);
                 Route::get('/', 'AdminController@home');
 
-                #Habria que hacer un middleware para evitar que un guest pueda crear materias.
                 Route::group(['prefix' => 'materias'], function(){
                     Route::get('/', 'AdminController@listMaterias');
                     Route::post('crearmateria', 'MateriasController@newMateria');

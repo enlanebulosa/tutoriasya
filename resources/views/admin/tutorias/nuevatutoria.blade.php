@@ -27,30 +27,14 @@
                     </div>
                 </div>
 
-                <div class="form-group{{ $errors->has('tipo') ? ' has-error' : '' }}">
-                  <label for="tipo" class="col-md-4 control-label">Tipo</label>
-                    <div class="col-md-6">
 
-                        <select class="form-control" name="tipo">
-                          <option value="">Elija un tipo</option>
-                          <!--Se deberia quitar el punto y coma cuando se adapten todas las bases
-                        (las bases de datos actualizadas no tienen el ;)-->
-                          <option value=";Universitario">Universitario</option>
-                          <option value=";Secundaria">Secundaria</option>
-                          <option value=";Primaria">Primaria</option>
-                        </select>
-                    </div>
-                  </div>
-
-                  <div class="form-group{{ $errors->has('materia') ? ' has-error' : '' }}">
+                <div class="form-group{{ $errors->has('materia') ? ' has-error' : '' }}">
                       <label for="materia" class="col-md-4 control-label">Materia</label>
                     <div class="col-md-6">
                         <select class="form-control" name="materia">
                           <option value="">Elija una materia</option>
-                          <!--Hay que agregar una forma para que solo se elijan materias que existan en el
-                        nivel elegido-->
                           @foreach($materias as $materia)
-                            <option value={{$materia->nombre}}>{{$materia->nombre}}</option>
+                            <option value={{$materia->id}}>{{$materia->nombre}} - {{$materia->nivel}}</option>
                           @endforeach
                         </select>
                     </div>

@@ -16,16 +16,7 @@ class UserMateriaController extends Controller
 
     public function nuevaTutoria(Request $request){
         $user=User::find($request->id_usuario);
-        $id_materia=Materia::where('nombre',$request->materia)->where('nivel',$request->nivel)->first()->id;
-        $user->materias()->attach($id_materia);
-    	return redirect('/');
-    	}
-
-    public function ingresarEnTutoria(Request $request)
-    {
-        $user=User::find($request->id_usuario);
-        $id_materia=Materia::where('nombre',$request->materia)->where('tipo',$request->tipo)->first()->id;
-        $user->materias()->attach($id_materia);
+        $user->materias()->attach($request->materia);
     	return redirect('/');
 
     }
