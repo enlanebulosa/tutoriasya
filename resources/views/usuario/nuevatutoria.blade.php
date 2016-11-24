@@ -1,8 +1,8 @@
-  <!-- Modal -->
-  <div class="modal fade" id="users" role="dialog">
-    <div class="modal-dialog">
+<!DOCTYPE html>
+@extends("layouts.app")
+@section("title", "Nueva Tutoría")
+@section("content")
 
-      <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -47,6 +47,12 @@
             </form>
             </div>
             </div>
-      </div>
+    
 
-  </div>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+@endsection
