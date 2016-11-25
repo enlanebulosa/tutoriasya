@@ -16,7 +16,7 @@
     <link href="/css/inicio.css" rel="stylesheet">
     <script src="{{ asset('bootstrap/js/bootstrap.js') }}"></script>
     <link href="https://fonts.googleapis.com/css?family=Droid+Sans|Pacifico" rel="stylesheet">
-    
+
 
     <!-- Scripts -->
     <script>
@@ -57,13 +57,13 @@
                     @if (Auth::guest())
                         <li><a href="{{ url('/register') }}"><button class="btn">Registrarse</button></a></li>
                         <li><a href="{{ url('/login') }}"><button class="btn">Iniciar Sesión</button></a></li>
-            
+
           </ul>
 
                     @else
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
-                            @if (Auth::user()->tipo='profesor')
+                            @if (Auth::user()->tipo=='profesor')
                                 <li><a href="/agregartutoria">Agregar Tutoria</a></li>
                             @endif
                         <li><a href="{{ url('/profesores') }}"><span class="glyphicon glyphicon-search"></span></a>
@@ -73,11 +73,11 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="position:relative; padding-left: 50px;">
                             <img src='/uploads/avatars/{{Auth::user()->avatar}}' style="width:32px; height:32px; position:absolute;; top:10px; left:10px; border-radius: 50%">
                                 {{ Auth::user()->nombre }} <span class="caret"></span>
-                            
-                            
-                    
+
+
+
                             </a>
-                             
+
                             <ul class="dropdown-menu" role="menu">
                             <li><a href="{{ url('/profile/'.Auth::user()->id) }}">Perfil</span>
                             </a></li>
@@ -107,7 +107,7 @@
     </nav>
 
     @yield('content')
-    
+
     <br/>
         <footer>
             <div style="position:bottom; background-color:black">
@@ -120,7 +120,7 @@
             </div>
         </footer>
     </body>
-    
+
     <!-- Scripts -->
     <script src="/js/app.js"></script>
     @yield('scripts')
