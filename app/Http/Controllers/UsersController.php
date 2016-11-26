@@ -19,7 +19,6 @@ class UsersController extends Controller
         $user = null;
 
         if($userID != null) {
-
             
             $user = User::find($userID);
             $materias=$user->materias();
