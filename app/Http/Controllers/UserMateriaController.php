@@ -16,6 +16,7 @@ class UserMateriaController extends Controller
 
     public function nuevaTutoria(Request $request){
         $user=User::find($request->id_usuario);
+        $pofesores=Materia::find($request->id_materia)->users();
         $user->materias()->attach($request->materia);
     	return redirect('/');
 
@@ -48,5 +49,16 @@ class UserMateriaController extends Controller
         $materias = Materia::all();
         return view('usuario/nuevatutoria', ['materias' => $materias]);
 
+    }
+    public function mostrarFormularioPorMaterias()
+    {
+        $materias = Materia::all();
+        return view('filtros/filtromateria', ['materias' => $materias]);
+
+    }
+
+    public function listarPorMaterias(Request $request){
+      $profesores=Materia::find($request->id_materia)->users()->paginate(5);
+      return view('filtros/profesores')->with('users',$profesores);
     }
 }

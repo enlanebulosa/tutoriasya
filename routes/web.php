@@ -16,6 +16,8 @@ Auth::routes();
 Route::patch('/profesores',[
     'as' => 'user.usuario.profesores',
 ]);
+Route::get('/pormaterias', 'UserMateriaController@mostrarFormularioPorMaterias');
+Route::post('/listarpormaterias', 'UserMateriaController@listarPorMaterias');
 
 Route::get('/gmaps', ['as' => 'gmaps', 'uses' => 'GmapsController@index']);
 Route::get('/home', 'HomeController@index');
