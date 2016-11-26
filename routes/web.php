@@ -72,6 +72,11 @@ Route::get('prueba', function(){
    return view('/usuario/profesor');
 });
 
+Route::get("/consulta",function(){
+    return view("/usuario/consulta");
+});
+
+
 Route::get("/perfil",function(){
 	return view("perfil");
 });
@@ -86,4 +91,9 @@ Route::get("/buscar",function(){
 Route::get('/profile/{id}', [
         'as'    => 'profile',
         'uses'  => 'UsersController@viewProfile'
+]);
+
+Route::get('/consulta/{id}', [
+        'as'    => 'consulta',
+        'uses'  => 'UsersController@contactar'
 ]);

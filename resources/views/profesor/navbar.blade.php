@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" ; style=" background-color:black">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}"; style=" background-color:black">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>@yield('title', 'Tu Tutor') | Tutorias Ya!</title>
 
@@ -25,10 +25,10 @@
         ]); ?>
     </script>
 </head>
-<body ; style=" background-color:black">
-    <nav class="navbar navbar-default navbar-static-top" ; style=" background-color:black">
-        <div class="container"; style=" background-color:black">
-            <div class="navbar-header" ; style=" background-color:black">
+<body>
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="container">
+            <div class="navbar-header">
 
                 <!-- Collapsed Hamburger -->
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
@@ -44,14 +44,14 @@
                 </a>
             </div>
 
-            <div class="collapse navbar-collapse" id="app-navbar-collapse"; style=" background-color:black">
+            <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
-                <ul class="nav navbar-nav" ; style=" background-color:black">
+                <ul class="nav navbar-nav">
                     &nbsp;
                 </ul>
 
                 <!-- Right Side Of Navbar -->
-                <ul class="nav navbar-nav navbar-right" ; style=" background-color:black">
+                <ul class="nav navbar-nav navbar-right">
 
                     <!-- Authentication Links -->
                     @if (Auth::guest())
@@ -61,15 +61,14 @@
           </ul>
 
                     @else
-                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" ; style=" background-color:black">
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
-                            @if (Auth::user()->tipo='profesor')
-                                <li><a href="/agregartutoria">Agregar Tutoria</a></li>
-                            @endif
-                        <li><a href="{{ url('/profesores') }}"><span class="glyphicon glyphicon-search"></span></a>
-                        </li>
-                        <li><a href="#">Mis Tutores<span class="sr-only">(current)</span></a></li>
-                        <li class="dropdown" ; style=" background-color:black">
+                        <li><a href="/agregartutoria">Agregar Tutoria</a></li>
+
+                          
+                       
+                        <li><a href="#">Mis Alumnos<span class="sr-only">(current)</span></a></li>
+                        <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="position:relative; padding-left: 50px;">
                             <img src='/uploads/avatars/{{Auth::user()->avatar}}' style="width:32px; height:32px; position:absolute;; top:10px; left:10px; border-radius: 50%">
                                 {{ Auth::user()->nombre }} <span class="caret"></span>

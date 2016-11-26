@@ -7,6 +7,7 @@ use App\User;
 use Auth;
 use Image;
 
+
 class UsersController extends Controller
 {
     public function index(){
@@ -14,6 +15,27 @@ class UsersController extends Controller
         return view('paginacion')->with('users',$users);
 
     }
+    public function contactar($userID =null){
+        $user = null;
+
+        if($userID != null) {
+
+            
+            $user = User::find($userID);
+            $materias=$user->materias();
+        } else {
+            $user = User::find(Auth::user()->id);
+        }
+
+        return view('/usuario/consulta', [
+            'user' => $user,
+            'materias' => $materias
+        ]);
+
+
+
+    } 
+
     public function viewProfile($userId = null) {
         $user = null;
 
