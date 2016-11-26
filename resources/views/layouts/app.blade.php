@@ -71,7 +71,7 @@
                         <li><a href="#">Mis Tutores<span class="sr-only">(current)</span></a></li>
                         <li class="dropdown" ; style=" background-color:black">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="position:relative; padding-left: 50px;">
-                            <img src='/uploads/avatars/{{Auth::user()->avatar}}' style="width:32px; height:32px; position:absolute;; top:10px; left:10px; border-radius: 50%">
+                            <img src='/uploads/avatars/{{Auth::user()->avatar}}' style="width:32px; height:32px; position:absolute;; top:25px; left:10px; border-radius: 50%">
                                 {{ Auth::user()->nombre }} <span class="caret"></span>
 
 
