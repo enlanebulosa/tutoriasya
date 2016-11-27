@@ -50,6 +50,20 @@
                       </div>
 
                       <div class="form-group{{ $errors->has('nombre') ? ' has-error' : '' }}">
+                          <label for="descripcion" class="col-md-4 control-label">Correo electrónico</label>
+
+                          <div class="col-md-6">
+                              <textarea rows="1.5" cols="50" id="nombre" type="field" class="form-control" name="descripcion" value="{{ old('nombre') }}" autofocus>{{ Auth::user()->email }}
+                              </textarea>
+
+                              @if ($errors->has('email'))
+                                  <span class="help-block">
+                                      <strong>{{ $errors->first('email') }}</strong>
+                                  </span>
+                              @endif
+                          </div>
+                          
+                        <br/><br/><br/>
                           <label for="descripcion" class="col-md-4 control-label">Descripcion</label>
 
                           <div class="col-md-6">
