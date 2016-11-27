@@ -30,13 +30,14 @@ Route::get('email-verification/check/{token}', 'Auth\RegisterController@getVerif
 
 Route::group(['middleware' => ['web', 'isVerified']], function () {
     Route::group(['middleware' => ['web', 'isLogged']], function () {
+        Route::group(['middleware' => ['web', 'IsProfesor']], function () {
+          Route::get('/agregartutoria', 'UserMateriaController@mostrarFormulario');
+          Route::post('agregartutoria', 'UserMateriaController@nuevaTutoria');
+          Route::get('/consultas', 'ConsultasController@mostarConsultas');
+        }
 
         Route::get('/profile', 'UsersController@profile');
         Route::post('profile','UsersController@update_avatar');
-
-        Route::get('/agregartutoria', 'UserMateriaController@mostrarFormulario');
-        Route::post('agregartutoria', 'UserMateriaController@nuevaTutoria');
-
         Route::get('/consulta/{id}', 'ConsultasController@contactar');
         Route::post('/consulta', 'ConsultasController@agregarConsulta');
 
