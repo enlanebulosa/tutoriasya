@@ -33,8 +33,12 @@ Route::group(['middleware' => ['web', 'isVerified']], function () {
 
         Route::get('/profile', 'UsersController@profile');
         Route::post('profile','UsersController@update_avatar');
+
         Route::get('/agregartutoria', 'UserMateriaController@mostrarFormulario');
         Route::post('agregartutoria', 'UserMateriaController@nuevaTutoria');
+
+        Route::get('/consulta/{id}', 'ConsultasController@contactar');
+        Route::post('/consulta', 'ConsultasController@agregarConsulta');
 
         Route::group(['middleware' => ['web', 'isAdmin']], function () {
             Route::group(['prefix' => 'admin'], function(){
@@ -93,9 +97,4 @@ Route::get("/buscar",function(){
 Route::get('/profile/{id}', [
         'as'    => 'profile',
         'uses'  => 'UsersController@viewProfile'
-]);
-
-Route::get('/consulta/{id}', [
-        'as'    => 'consulta',
-        'uses'  => 'UsersController@contactar'
 ]);

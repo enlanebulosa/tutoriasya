@@ -1,8 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
- <body style="background-color: #3bbaa7 ">
- 
+
 
 <div class="container">
     <div class="row">
@@ -10,133 +9,68 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Consulta para {{$user->nombre}}</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/usuario/consulta') }}">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/consulta') }}">
                         {{ csrf_field() }}
                         <div class="form-group{{ $errors->has('materia') ? ' has-error' : '' }}">
-                      <label for="materia" class="col-md-4 control-label">Materia</label>
-                    <div class="col-md-6">
-                        <select class="form-control" name="materia">
-                          <option value="">Elija una materia</option>
-                          @foreach($materias as $materia)
-                            <option value={{$materia->id}}>{{$materia->nombre}} - {{$materia->nivel}}</option>
-                          @endforeach
-                        </select>
-                    </div>
-                </div>
-                        <input type="hidden" name="id_profesor" value={{$user->id}}>
-                        <input type="hidden" name="_id_usuario" value={{Auth::user()->id}}>
-                        <div class="form-group{{ $errors->has('nombre') ? ' has-error' : '' }}">
-                            <label for="nombre" class="col-md-4 control-label">Tutor</label>
+                          <label for="id_materia" class="col-md-4 control-label">Materia</label>
+                          <div class="col-md-6">
+                            <select class="form-control" name="id_materia">
+                              <option value="">Elija una materia</option>
+                              @foreach($materias as $materia)
+                                <option value={{$materia->id}}>{{$materia->nombre}} - {{$materia->nivel}}</option>
+                              @endforeach
+                            </select>
+                          </div>
+                      </div>
 
-                            <div class="col-md-6">
-                                <input id="nombre" type="text" class="form-control" name="nombre" value="{{ old('nombre') }}" autofocus>
+                      <div class="form-group{{ $errors->has('id_profesor') ? ' has-error' : '' }}">
 
-                                @if ($errors->has('nombre'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('nombre') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-                        
-                        <div class="form-group{{ $errors->has('apellido') ? ' has-error' : '' }}">
-                            <label for="apellido" class="col-md-4 control-label">Apellido</label>
+                          <div class="col-md-6">
+                              <input id="id_profesor" type="hidden" class="form-control hidden" name="id_profesor" value="{{$user->id}}" autofocus>
 
-                            <div class="col-md-6">
-                                <input id="apellido" type="text" class="form-control" name="apellido" value="{{ old('apellido') }}" autofocus>
+                              @if ($errors->has('id_profesor'))
+                                  <span class="help-block">
+                                      <strong>{{ $errors->first('id_profesor') }}</strong>
+                                  </span>
+                              @endif
+                          </div>
+                      </div>
 
-                                @if ($errors->has('apellido'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('apellido') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-                        
-                        <div class="form-group{{ $errors->has('dni') ? ' has-error' : '' }}">
-                            <label for="dni" class="col-md-4 control-label">DNI</label>
+                      <div class="form-group{{ $errors->has('id_usuario') ? ' has-error' : '' }}">
 
-                            <div class="col-md-6">
-                                <input id="dni" type="number" class="form-control" name="dni" value="{{ old('dni') }}" autofocus>
+                          <div class="col-md-6">
+                              <input id="id_usuario" type="hidden" class="form-control hidden" name="id_usuario" value='{{ Auth::user()->id }}' autofocus>
 
-                                @if ($errors->has('dni'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('dni') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-                        
-                        <hr>
-                        
-                        <div class="form-group{{ $errors->has('tipo') ? ' has-error' : '' }}">
-                            <label for="tipo" class="col-md-4 control-label">Tipo de usuario</label>
+                              @if ($errors->has('id_usuario'))
+                                  <span class="help-block">
+                                      <strong>{{ $errors->first('id_usuario') }}</strong>
+                                  </span>
+                              @endif
+                          </div>
+                      </div>
 
-                            <div class="col-md-6">
-                                <select name="tipo" class="form-control" value="{{ old('tipo') }}" autofocus>
-                                <option value="alumno" selected="selected">Alumno</option>
-                                <option value="profesor">Profesor</option>
-                                </select>
+                      <div class="form-group{{ $errors->has('nombre') ? ' has-error' : '' }}">
+                          <label for="descripcion" class="col-md-4 control-label">Descripcion</label>
 
-                                @if ($errors->has('tipo'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('tipo') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-                        
-                        <hr>
+                          <div class="col-md-6">
+                              <textarea rows="4" cols="50" id="nombre" type="text" class="form-control" name="descripcion" value="{{ old('nombre') }}" autofocus>Ejemplo: Información de contacto, Horarios deseados, Zonas comunes, etc
+                              </textarea>
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+                              @if ($errors->has('nombre'))
+                                  <span class="help-block">
+                                      <strong>{{ $errors->first('nombre') }}</strong>
+                                  </span>
+                              @endif
+                          </div>
+                      </div>
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}">
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password">
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
-                            <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation">
-
-                                @if ($errors->has('password_confirmation'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password_confirmation') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Registrarse
-                                </button>
-                            </div>
-                        </div>
+                      <div class="form-group">
+                          <div class="col-md-6 col-md-offset-4">
+                              <button type="submit" class="btn btn-primary">
+                                  Enviar consulta
+                              </button>
+                          </div>
+                      </div>
                     </form>
                 </div>
             </div>

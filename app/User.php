@@ -40,6 +40,18 @@ class User extends Model implements AuthenticatableContract
         return $this->hasMany('App\Reputacion', 'id_calificador');
     }
 
+    public function consultasHechas(){
+        return $this->belongsToMany('App\Consulta', 'id_usuario')
+                ->withTimestamps();
+    }
+
+    public function consultasRecibidas(){
+        return $this->belongsToMany('App\Consulta', 'id_profesor')
+                ->withTimestamps();
+    }
+
+
+
     public function materias(){
         return $this->belongsToMany('App\Materia', 'user_materia', 'id_usuario', 'id_materia')
                 ->withTimestamps();
@@ -88,4 +100,3 @@ class User extends Model implements AuthenticatableContract
         }
     }
 }
-

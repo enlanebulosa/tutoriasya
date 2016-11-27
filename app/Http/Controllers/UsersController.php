@@ -15,25 +15,6 @@ class UsersController extends Controller
         return view('paginacion')->with('users',$users);
 
     }
-    public function contactar($userID =null){
-        $user = null;
-
-        if($userID != null) {
-            
-            $user = User::find($userID);
-            $materias=$user->materias();
-        } else {
-            $user = User::find(Auth::user()->id);
-        }
-
-        return view('/usuario/consulta', [
-            'user' => $user,
-            'materias' => $materias
-        ]);
-
-
-
-    } 
 
     public function viewProfile($userId = null) {
         $user = null;
@@ -95,7 +76,7 @@ class UsersController extends Controller
 		$user =User::find($id);
 		return view('admin.usuarios.edit')->with('user',$user);
 	}
-	
+
 	public function update(Request $request,$id){
 		$user=User::find($id);
     	$user->nombre=$request->nombre;
@@ -107,13 +88,13 @@ class UsersController extends Controller
     	//Flash::warning('El usuario', $user->nombre, 'fue editado correctamente');
     	return redirect('admin/usuarios');
 	}
+  
 	 public function destroy($id){
 		 $user=User::find($id);
 		 $user->delete();
 		 //Flash::error('El usuario', $user->nombre, 'fue borrado correctamente');
 		 return redirect('/admin/usuarios');
-	}	
-    	 
+	}
 
     public function deleteUser(Request $request){
     	if ($request->ajax())
@@ -130,7 +111,7 @@ class UsersController extends Controller
 
      public function show($id){
 	}
-    
+
 
     public function update_avatar(Request $request){
         if($request->hasFile('avatar')){
@@ -146,7 +127,4 @@ class UsersController extends Controller
         return view('usuario/profile', array('user'=> Auth::user()));
     }
 
-} 
-
-
-
+}
