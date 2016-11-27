@@ -11,15 +11,15 @@ class Consulta extends Model
 
     public function solicitante()
     {
-        return $this->hasMany('App\User', 'id_usuario')->withTimestamps();
+        return $this->belongsTo('App\User', 'id_usuario');
     }
 
     public function profesor()
     {
-        return $this->hasMany('App\User', 'id_profesor')->withTimestamps();
+        return $this->belongsTo('App\User', 'id_profesor');
     }
 
     public function materia(){
-      return $this->hasMany('App\Materia', 'id_materia')->withTimestamps();
+      return $this->belongsTo('App\Materia', 'id_materia');
     }
 }

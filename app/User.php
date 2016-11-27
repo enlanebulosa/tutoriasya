@@ -41,13 +41,11 @@ class User extends Model implements AuthenticatableContract
     }
 
     public function consultasHechas(){
-        return $this->belongsToMany('App\Consulta', 'id_usuario')
-                ->withTimestamps();
+        return $this->hasMany('App\Consulta', 'id_usuario', 'id');
     }
 
     public function consultasRecibidas(){
-        return $this->belongsToMany('App\Consulta', 'id_profesor')
-                ->withTimestamps();
+        return $this->hasMany('App\Consulta', 'id_profesor', 'id');
     }
 
 
