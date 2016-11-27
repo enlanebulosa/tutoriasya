@@ -65,6 +65,7 @@
                         <ul class="nav navbar-nav">
                             @if (Auth::user()->tipo=='profesor')
                                 <li><a href="/agregartutoria">Agregar Tutoria</a></li>
+                                <li><a href="/consultas">Consultas</a></li>
                             @endif
                         <li><a href="{{ url('/profesores') }}"><span class="glyphicon glyphicon-search"></span></a>
                         </li>

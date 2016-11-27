@@ -16,7 +16,6 @@ class UserMateriaController extends Controller
 
     public function nuevaTutoria(Request $request){
         $user=User::find($request->id_usuario);
-        $pofesores=Materia::find($request->id_materia)->users();
         $user->materias()->attach($request->materia);
     	return redirect('/');
 

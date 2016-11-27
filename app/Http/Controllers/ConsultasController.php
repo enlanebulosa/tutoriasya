@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
 use App\User;
 use App\Consulta;
 
@@ -33,5 +34,10 @@ class ConsultasController extends Controller
     public function agregarConsulta(Request $request){
       $consulta = Consulta::create($request->all());
       return redirect('/');
+    }
+
+    public function mostrarConsultas(){
+      $consultas = Auth::user()->consultasRecibidas()->paginate(5);
+      return view('profesor/consultas', ['consultas' => $consultas]);
     }
 }
