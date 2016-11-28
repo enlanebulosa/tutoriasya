@@ -45,6 +45,7 @@ class UsersController extends Controller
     public function newUser(Request $request){
         $user=User::create($request->all());
         $user->password = bcrypt($request->password);
+        $user->verified = 1;
         $user->save();
         flash('Se ha creado el usuario ' . $user->nombre . ' exitosamente.', 'success');
         return redirect('/admin/usuarios');
@@ -88,7 +89,7 @@ class UsersController extends Controller
     	//Flash::warning('El usuario', $user->nombre, 'fue editado correctamente');
     	return redirect('admin/usuarios');
 	}
-  
+
 	 public function destroy($id){
 		 $user=User::find($id);
 		 $user->delete();
