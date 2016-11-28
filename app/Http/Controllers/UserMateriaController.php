@@ -53,8 +53,8 @@ class UserMateriaController extends Controller
 
     public function listarUserMaterias()
     {
-        $materias=User::find(Auth::user()->id)->materias();
-        return view('usuario/listarmaterias', ['materias' => $materias]);
+        $materias=User::find(Auth::user()->id)->materias()->paginate(5);
+        return view('usuario/listarmaterias')->with('materias',$materias);
     }
 
     public function mostrarFormularioPorMaterias()

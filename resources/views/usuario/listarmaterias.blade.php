@@ -12,17 +12,11 @@
 		</thead>
 	 	<tbody>
 	 		@foreach($materias as $materia)
-	 		<tr id="materias{{$materia ->id}}">
-	 			<td>{{$materia ->nombre}}</td>
-	 			<td>{{$materia ->nivel}}</td>
+	 		<tr id="materias{{$materia->id}}">
+	 			<td>{{$materia->nombre}}</td>
+	 			<td>{{$materia->tipo}}</td>
 	 			<td>
 
-					<a href="{{ route('materia.edit', $materia->id) }}" class="btn btn-primary ">
-					Editar</a>
-					<a href="{{ route('materia.destroy', $materia->id) }}"onclick="return confirm('¿Seguro deseas eliminarlo?')" class="btn btn-danger ">
-					Borrar</a>
-	 			<!--	<button class="btn btn-success btn-edit" data-id="{{$user->id}}"><i class="glyphicon glyphicon-saved"></i  >Editretrtrtttetar</button> -->
-	 			<!--	<button class="btn btn-danger btn-delete" data-id="{{$user->id}}"><i class="glyphicon glyphicon-remove"></i>Borrar</button> -->
 
 	 			</td>
 	 		</tr>
@@ -30,4 +24,18 @@
 	 	</tbody>
 	 </table>
 </div>
+@endsection
+
+@section('scripts')
+<script type="text/javascript">
+	$('#add').on('click',function(){
+		$('#save').val('save');
+		$('#frmMateria').trigger('reset');
+		$('#materia').modal('show');
+	})
+	$('.btn-edit').on('click',function(){
+		alert($(this).data('id'));
+	})
+
+</script>
 @endsection
