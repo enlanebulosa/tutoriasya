@@ -33,6 +33,7 @@ Route::group(['middleware' => ['web', 'isVerified']], function () {
         Route::group(['middleware' => ['web', 'isProfesor']], function () {
           Route::get('/agregartutoria', 'UserMateriaController@mostrarFormulario');
           Route::post('agregartutoria', 'UserMateriaController@nuevaTutoria');
+          Route::get('/listartutorias', 'UserMateriaController@listarUserMaterias');
           Route::get('/consultas', 'ConsultasController@mostrarConsultas');
         });
 

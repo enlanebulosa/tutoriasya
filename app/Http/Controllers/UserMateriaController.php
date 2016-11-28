@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
 use App\User;
 use App\Materia;
 use DB;
@@ -49,6 +50,13 @@ class UserMateriaController extends Controller
         return view('usuario/nuevatutoria', ['materias' => $materias]);
 
     }
+
+    public function listarUserMaterias()
+    {
+        $materias=User::find(Auth::user()->id)->materias();
+        return view('usuario/listarmaterias', ['materias' => $materias]);
+    }
+
     public function mostrarFormularioPorMaterias()
     {
         $materias = Materia::all();
