@@ -22,9 +22,10 @@ class dbseed extends Seeder
     			'email'=> $faker-> email,
     			'tipo'=>$faker-> randomElement (['profesor','administrador', 'alumno']),
     			'password'=>bcrypt('secret'),
+          'verified'=>1,
     		));
                 $user->save();
     	}
-       
+
     }
 }
